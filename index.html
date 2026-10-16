@@ -450,7 +450,7 @@ section.block{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding
     <div class="hero-card" onclick="go('cook')">
       <div class="icon">👨‍🍳</div>
       <h3>好好做菜</h3>
-      <p>每一道都实测过、绝不踩雷的私房菜谱。带计时烹饪模式，把手机往支架上一放，安心下锅。</p>
+      <p>步骤清晰、用料明确的私房菜谱。带计时烹饪模式，把手机往支架上一放，安心下锅。</p>
     </div>
     <div class="hero-card" onclick="go('pick')">
       <div class="icon">🥬</div>
@@ -460,7 +460,7 @@ section.block{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding
   </div>
 
   <div class="features">
-    <div class="feature"><div class="f-icon">✅</div><h4>验真菜谱</h4><p>高分配方·大厨亲传·家传秘方</p></div>
+    <div class="feature"><div class="f-icon">✅</div><h4>精选菜谱</h4><p>步骤清晰·用料明确·家常好做</p></div>
     <div class="feature"><div class="f-icon">⏱️</div><h4>沉浸烹饪</h4><p>大字倒计时，下菜顺序提醒</p></div>
     <div class="feature"><div class="f-icon">🔗</div><h4>菜↔材联动</h4><p>菜谱生成清单，食材反查菜谱</p></div>
     <div class="feature"><div class="f-icon">💛</div><h4>美味记忆</h4><p>记录每次的感动与双人打分</p></div>
@@ -469,8 +469,8 @@ section.block{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding
 
 <!-- 好好做菜 -->
 <section class="block" id="cook">
-  <h2 class="section-title">🍲 好好做菜 <span style="font-size:16px;color:var(--brown-soft);font-weight:normal">— 私房验真菜谱库</span></h2>
-  <p class="section-desc">每一道都标注来源与"已验证"标志，实测通过才上架。点进去可启动厨房沉浸模式。</p>
+  <h2 class="section-title">🍲 好好做菜 <span style="font-size:16px;color:var(--brown-soft);font-weight:normal">— 私房菜谱库</span></h2>
+  <p class="section-desc">每一道都写明步骤与用料。点进去可启动厨房沉浸模式。</p>
   <div class="filter-bar" id="recipeFilters"></div>
   <div class="recipe-grid" id="recipeGrid"></div>
 </section>
@@ -478,7 +478,7 @@ section.block{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding
 <!-- 好好挑菜 -->
 <section class="block" id="pick">
   <h2 class="section-title">🥕 好好挑菜 <span style="font-size:16px;color:var(--brown-soft);font-weight:normal">— 食材挑选与灵感指南</span></h2>
-  <p class="section-desc">看、摸、闻三步法 + 时令推荐。点食材可查看挑选秘籍，并反查能做的验真菜谱。</p>
+  <p class="section-desc">看、摸、闻三步法 + 时令推荐。点食材可查看挑选秘籍，并反查能做的菜谱。</p>
   <div class="ingredient-tabs" id="ingTabs"></div>
   <div class="ing-grid" id="ingGrid"></div>
 </section>
@@ -568,7 +568,7 @@ const RECIPES = [
   {
     id:'r1', name:'番茄炖牛腩', emoji:'🍲',
     desc:'酥烂入味、汤汁浓郁，拌饭一绝。',
-    source:'《下厨房》9.2分高分配方 + 小兔亲测调整',
+    source:'经典家常炖菜',
     difficulty:'中等', time:90, servings:'2人份',
     tags:['硬菜','下饭','炖菜'],
     rating:5,
@@ -591,7 +591,7 @@ const RECIPES = [
   {
     id:'r2', name:'可乐鸡翅', emoji:'🍗',
     desc:'甜咸交织、色泽红亮，小朋友和小兔都爱。',
-    source:'家传秘方 · 妈妈的味道',
+    source:'家常快手菜',
     difficulty:'简单', time:30, servings:'2人份',
     tags:['家常菜','快手','甜口'],
     rating:5,
@@ -612,7 +612,7 @@ const RECIPES = [
   {
     id:'r3', name:'清蒸鲈鱼', emoji:'🐟',
     desc:'鲜嫩弹牙，原汁原味，最考验食材新鲜度。',
-    source:'粤菜大厨经典做法 · 顺德清蒸',
+    source:'粤式经典蒸鱼',
     difficulty:'中等', time:20, servings:'2人份',
     tags:['海鲜','清淡','宴客'],
     rating:4,
@@ -632,7 +632,7 @@ const RECIPES = [
   {
     id:'r4', name:'蒜蓉粉丝蒸虾', emoji:'🦐',
     desc:'蒜香浓郁，粉丝吸满鲜汁，一口满足。',
-    source:'《下厨房》收藏破万配方',
+    source:'家常蒸菜',
     difficulty:'简单', time:25, servings:'2人份',
     tags:['海鲜','宴客','快手'],
     rating:5,
@@ -652,7 +652,7 @@ const RECIPES = [
   {
     id:'r5', name:'红烧肉', emoji:'🥩',
     desc:'肥而不腻、入口即化，浓油赤酱的上海味道。',
-    source:'本帮菜经典 · 小兔外婆亲传',
+    source:'本帮经典家常菜',
     difficulty:'中等', time:80, servings:'2-3人份',
     tags:['硬菜','经典','下饭'],
     rating:5,
@@ -712,7 +712,7 @@ const RECIPES = [
   {
     id:'r8', name:'麻婆豆腐', emoji:'🌶️',
     desc:'麻、辣、烫、香、酥、嫩、鲜、活，川菜之魂。',
-    source:'川菜正宗配方 · 陈麻婆豆腐',
+    source:'川味经典家常做法',
     difficulty:'中等', time:20, servings:'2人份',
     tags:['川菜','下饭','辣'],
     rating:5,
@@ -823,13 +823,12 @@ function renderRecipes(){
     <div class="recipe-card" onclick="openRecipe('${r.id}')">
       <div class="recipe-cover">
         ${r.emoji}
-        <span class="verified-badge">✅ 已验证</span>
         <span class="fav-btn ${state.favs.includes(r.id)?'active':''}" onclick="event.stopPropagation();toggleFav('${r.id}')">${state.favs.includes(r.id)?'❤️':'🤍'}</span>
       </div>
       <div class="recipe-body">
         <div class="recipe-title">${r.name}</div>
         <div class="recipe-meta"><span>⏱${r.time}分钟</span><span>🔥${r.difficulty}</span><span>🍽${r.servings}</span></div>
-        <div class="recipe-source">来源：${r.source}</div>
+        <div class="recipe-source">${r.source}</div>
         <div class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
       </div>
     </div>
@@ -852,7 +851,6 @@ function openRecipe(id){
   document.getElementById('recipeDetailBody').innerHTML=`
     <div class="detail-cover">${r.emoji}</div>
     <div class="detail-tags">${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-    <div class="source-box">📜 <b>来源凭证：</b>${r.source}<br>✅ <b>验证状态：</b>已实测通过，绝不踩雷</div>
     <div style="display:flex;gap:20px;flex-wrap:wrap;color:var(--brown-soft);font-size:14px">
       <span>⏱ 用时：${r.time}分钟</span><span>🔥 难度：${r.difficulty}</span><span>🍽 份量：${r.servings}</span>
     </div>
@@ -950,11 +948,11 @@ function openIngredient(id){
     </div>
     <div class="source-box">💡 <b>小贴士：</b>${i.tips}</div>
     ${related.length?`
-    <div class="detail-section"><h3>🍳 用它能做这些验真菜谱</h3>
+    <div class="detail-section"><h3>🍳 用它能做这些菜谱</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px">
         ${related.map(r=>`
           <div class="recipe-card" onclick="closeModal('ingModal');setTimeout(()=>openRecipe('${r.id}'),300)" style="cursor:pointer">
-            <div class="recipe-cover" style="height:80px;font-size:36px">${r.emoji}<span class="verified-badge" style="font-size:10px">✅</span></div>
+            <div class="recipe-cover" style="height:80px;font-size:36px">${r.emoji}</div>
             <div class="recipe-body" style="padding:10px"><div class="recipe-title" style="font-size:16px">${r.name}</div></div>
           </div>`).join('')}
       </div>
