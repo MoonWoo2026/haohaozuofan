@@ -172,6 +172,16 @@ section.block{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding
 .recipe-source{font-size:13px;color:var(--coral);font-style:italic}
 .stars{color:var(--warm-orange);font-size:14px;margin-top:6px}
 
+
+/* ============ 新手教程 ============ */
+.beginner-tips{display:flex;flex-direction:column;gap:12px}
+.tip-card{background:#fff;border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-sm);border-left:4px solid var(--warm-yellow)}
+.tip-card.tip-principle{border-left-color:var(--sage)}
+.tip-card.tip-mistake{border-left-color:var(--terracotta)}
+.tip-card.tip-key{border-left-color:var(--warm-orange)}
+.tip-header{font-weight:bold;font-size:15px;margin-bottom:6px;color:var(--brown)}
+.tip-content{font-size:14px;color:var(--brown-soft);line-height:1.7}
+
 /* ============ 弹窗通用 ============ */
 .modal-mask{
   position:fixed;inset:0;background:rgba(74,63,53,.45);backdrop-filter:blur(4px);
@@ -586,7 +596,13 @@ const RECIPES = [
       {text:'大火烧开后转小火慢炖，让牛腩酥烂入味。',timer:3600},
       {text:'开盖大火收汁至浓稠，撒葱花出锅。',timer:300}
     ],
-    related:['牛腩','番茄','洋葱']
+    related:['牛腩','番茄','洋葱'],
+    beginnerTips:[
+      {type:'principle',title:'为什么牛腩要冷水下锅焯水',content:'冷水下锅才能让血沫慢慢渗出。热水下锅肉表面瞬间收紧，血水锁在里面，腥味就去不掉了。'},
+      {type:'mistake',title:'常见错误：汤汁浑浊有腥味',content:'焯水没焯透，或焯完没冲洗。记住：冷水下锅、大火烧开、温水冲洗，三步缺一不可。'},
+      {type:'key',title:'关键技巧：一次性加足热水',content:'炖肉必须加热水，加冷水肉会突然收缩变柴。水要一次加够，中途加水汤就不浓了。'},
+      {type:'key',title:'收汁别太干',content:'留一点汤汁拌饭。收太干只剩油，肉反而腻。'}
+    ]
   },
   {
     id:'r2', name:'可乐鸡翅', emoji:'🍗',
@@ -607,7 +623,13 @@ const RECIPES = [
       {text:'大火烧开转中小火，煮至汤汁浓稠裹满鸡翅。',timer:900},
       {text:'大火收汁亮油，出锅装盘。',timer:120}
     ],
-    related:['鸡翅','可乐']
+    related:['鸡翅','可乐'],
+    beginnerTips:[
+      {type:'principle',title:'为什么要先煎鸡翅',content:'煎出金黄的焦化层（美拉德反应），这是香味的来源。不煎直接炖，鸡翅发白没香气，还容易破皮。'},
+      {type:'mistake',title:'常见错误：一盘子汤',content:'视频里的反面教材——水加太多或没收汁。可乐鸡翅的汤汁应该浓稠挂勺，不是稀汤寡水。'},
+      {type:'key',title:'关键技巧：用普通可乐',content:'无糖可乐没有糖分，上色差、不发亮。收汁时不断翻动，糖分焦化才挂汁。'},
+      {type:'mistake',title:'别急着翻',content:'煎的时候一面定型再翻，频繁翻动皮会破。'}
+    ]
   },
   {
     id:'r3', name:'清蒸鲈鱼', emoji:'🐟',
@@ -627,7 +649,13 @@ const RECIPES = [
       {text:'蒸好倒掉腥水，铺上葱姜丝。',timer:0},
       {text:'淋蒸鱼豉油，热油浇在葱姜丝上激香。',timer:30}
     ],
-    related:['鲈鱼']
+    related:['鲈鱼'],
+    beginnerTips:[
+      {type:'principle',title:'为什么蒸8分钟正好',content:'一斤左右的鱼，大火足汽8分钟，鱼肉刚好熟透且嫩。蒸久了蛋白质过度凝固，肉就老了发柴。'},
+      {type:'mistake',title:'常见错误：腥味重',content:'两个原因：1.鱼腹黑膜没刮干净 2.蒸出来的腥水没倒掉。蒸完盘里的汤必须倒掉，那是腥味来源。'},
+      {type:'key',title:'关键技巧：水开再上锅',content:'冷水上锅鱼肉在升温过程中慢慢变老。必须大火烧开水，再放鱼，立刻盖盖。'},
+      {type:'key',title:'最后泼热油',content:'葱丝姜丝铺面，一勺滚烫热油泼下去"呲啦"一声，香味瞬间激发。油温不够就激发不出香味。'}
+    ]
   },
   {
     id:'r4', name:'蒜蓉粉丝蒸虾', emoji:'🦐',
@@ -647,7 +675,13 @@ const RECIPES = [
       {text:'蒜蓉酱铺在虾背上，水开上锅蒸。',timer:360},
       {text:'撒葱花小米辣，淋热油激香即可。',timer:30}
     ],
-    related:['鲜虾','粉丝']
+    related:['鲜虾','粉丝'],
+    beginnerTips:[
+      {type:'principle',title:'为什么虾要开背',content:'开背去虾线（肠道，有泥沙腥味），同时让虾受热摊开，造型好看也更入味。'},
+      {type:'mistake',title:'常见错误：虾肉老得像橡皮',content:'蒸久了。水开上锅大火4分钟足够，虾肉变红卷起就熟了。蒸8分钟以上必定老。'},
+      {type:'key',title:'关键技巧：金银蒜',content:'一半蒜末炸金黄+一半生蒜末混合，香味层次翻倍。全用生蒜辛辣，全用熟蒜不够香。'},
+      {type:'key',title:'粉丝先泡软',content:'温水泡10分钟，泡不透蒸完芯是硬的。粉丝铺在底下吸饱虾汁，比虾还好吃。'}
+    ]
   },
   {
     id:'r5', name:'红烧肉', emoji:'🥩',
@@ -669,7 +703,13 @@ const RECIPES = [
       {text:'加热水没过肉，大火烧开转小火慢炖。',timer:2700},
       {text:'开盖大火收汁至浓稠油亮。',timer:300}
     ],
-    related:['五花肉']
+    related:['五花肉'],
+    beginnerTips:[
+      {type:'principle',title:'为什么要炒糖色',content:'糖色（焦糖化）赋予红烧肉红亮的色泽和焦糖香，这是老抽给不了的。但糖色只能增香上色，甜味还是要靠冰糖。'},
+      {type:'mistake',title:'常见错误：糖色炒糊发苦',content:'糖色从冒小泡到枣红色只有几秒钟窗口。宁可嫩一点（甜味重），不可老一分（发苦救不回）。新手建议全程小火，颜色一变深立刻下肉。'},
+      {type:'mistake',title:'常见错误：又腻又柴',content:'煸炒出油脂这一步不能省——把五花肉本身的油煸出来倒掉一部分，成品才不腻。炖的时间不够（少于40分钟）肉就柴。'},
+      {type:'key',title:'关键技巧：加热水炖',content:'炒完糖色的肉温度很高，遇冷水急剧收缩，怎么炖都柴。必须加滚烫的开水。'}
+    ]
   },
   {
     id:'r6', name:'蒜蓉西兰花', emoji:'🥦',
@@ -687,7 +727,13 @@ const RECIPES = [
       {text:'沸水加少许盐油，焯烫西兰花30秒捞出过凉水。',timer:30},
       {text:'热油爆香蒜末，下西兰花翻炒，加盐蚝油炒匀出锅。',timer:60}
     ],
-    related:['西兰花']
+    related:['西兰花'],
+    beginnerTips:[
+      {type:'principle',title:'为什么焯水要加盐和油',content:'盐让西兰花入底味，油在表面形成薄膜保持翠绿。原理是油膜隔绝空气，减缓叶绿素氧化变黄。'},
+      {type:'mistake',title:'常见错误：炒出一盘黄菜',content:'焯水太久（超过1分钟）或炒太久。西兰花焯水30秒就够，下锅大火快炒30秒出锅，保持脆嫩。'},
+      {type:'key',title:'关键技巧：蒜末分两次放',content:'一半爆香炒底味，一半出锅前撒，蒜香层次更丰富。'},
+      {type:'mistake',title:'别盖锅盖',content:'绿叶菜盖锅盖焖，叶绿素被酸性物质破坏，瞬间变黄。'}
+    ]
   },
   {
     id:'r7', name:'蛋炒饭', emoji:'🍚',
@@ -707,7 +753,13 @@ const RECIPES = [
       {text:'加盐、少许生抽调味，炒至米粒粒粒分明。',timer:180},
       {text:'撒葱花翻匀出锅。',timer:30}
     ],
-    related:['鸡蛋','米饭']
+    related:['鸡蛋','米饭'],
+    beginnerTips:[
+      {type:'principle',title:'为什么用隔夜饭',content:'隔夜饭水分蒸发，米粒干爽分明。新鲜米饭水分多，下锅就成一坨。没有隔夜饭就把米饭摊开晾凉吹干。'},
+      {type:'mistake',title:'常见错误：粘成一坨',content:'锅不够热、油不够多、饭太湿。记住：锅烧到冒烟再下油，油热再下饭，大火快炒。'},
+      {type:'key',title:'关键技巧：先炒蛋还是先炒饭',content:'新手推荐：先炒鸡蛋盛出，再炒饭，最后混合。分开炒各得其所，不会手忙脚乱。'},
+      {type:'key',title:'蛋液拌饭法',content:'进阶：蛋液直接拌进冷饭里再炒，每粒米都裹上蛋，金黄分明（金包银）。'}
+    ]
   },
   {
     id:'r8', name:'麻婆豆腐', emoji:'🌶️',
@@ -729,7 +781,13 @@ const RECIPES = [
       {text:'分两次勾芡，让汤汁浓稠裹住豆腐。',timer:60},
       {text:'出锅撒花椒粉、葱花，趁热吃。',timer:0}
     ],
-    related:['豆腐','牛肉']
+    related:['豆腐','牛肉'],
+    beginnerTips:[
+      {type:'principle',title:'为什么豆腐要焯水',content:'淡盐水焯豆腐：1.去豆腥味 2.让豆腐收紧不易碎 3.盐渗透进去入底味。'},
+      {type:'mistake',title:'常见错误：豆腐碎成渣',content:'用锅铲翻炒必然碎。正确做法是晃动锅子或用锅铲背面轻推。'},
+      {type:'key',title:'关键技巧：分两次勾芡',content:'第一次薄芡让汤变浓，第二次浓芡让汁裹住豆腐。一次下足芡粉会结块。'},
+      {type:'key',title:'豆瓣酱先炒出红油',content:'小火慢炒出红油再下豆腐，颜色红亮不发黑。火大炒糊了整锅发苦。'}
+    ]
   },
   {
     id:'r9', name:'宫保鸡丁', emoji:'🍗',
@@ -753,7 +811,13 @@ const RECIPES = [
       {text:'爆香干辣椒花椒，下葱姜蒜，倒入鸡丁和料汁大火收汁。',timer:120},
       {text:'关火拌入花生米，出锅。',timer:30}
     ],
-    related:['鸡腿','大葱','姜']
+    related:['鸡腿','大葱','姜'],
+    beginnerTips:[
+      {type:'principle',title:'为什么鸡腿比鸡胸好',content:'鸡腿肉有脂肪有筋膜，怎么炒都嫩。鸡胸水分少，稍微过火就柴。去骨鸡腿是宫保鸡丁的正确选择。'},
+      {type:'mistake',title:'常见错误：花生米不脆',content:'两个原因：1.花生米和鸡丁一起下锅炒太久受潮 2.炸花生时火大外糊内生。必须冷油小火炸，关火后才拌入。'},
+      {type:'key',title:'关键技巧：糊辣荔枝口',content:'先下干辣椒花椒小火炒出糊辣香（不能糊），料汁糖醋比例1:1，这是宫保味型的灵魂。'},
+      {type:'key',title:'腌制上浆',content:'鸡丁加淀粉抓匀，淀粉形成保护膜锁住水分，炒出来才滑嫩。'}
+    ]
   },
   {
     id:'r10', name:'鱼香肉丝', emoji:'🐟',
@@ -776,7 +840,13 @@ const RECIPES = [
       {text:'爆香泡椒、姜蒜，下蔬菜丝炒软。',timer:120},
       {text:'倒入肉丝和鱼香汁，大火收汁至浓稠。',timer:90}
     ],
-    related:['猪里脊','木耳','胡萝卜','青椒']
+    related:['猪里脊','木耳','胡萝卜','青椒'],
+    beginnerTips:[
+      {type:'principle',title:'鱼香为什么没有鱼',content:'鱼香是川菜味型，用泡椒、姜、蒜、糖、醋调出类似烧鱼的味道。泡椒是灵魂，没有泡椒就不是鱼香味。'},
+      {type:'mistake',title:'常见错误：肉丝又老又柴',content:'里脊切好后要"上浆"：加生抽、淀粉、油抓匀。油封住水分，淀粉形成保护膜，滑炒时大火快速变色就盛出。'},
+      {type:'key',title:'关键技巧：先兑碗汁',content:'鱼香汁提前调好（生抽2:醋1.5:糖1.5），炒菜时一次性倒入。边炒边加调料，肉就老了。'},
+      {type:'key',title:'泡椒剁碎',content:'泡椒剁碎才能炒出红油和香味，整个放香味出不来。'}
+    ]
   },
   {
     id:'r11', name:'西红柿炒鸡蛋', emoji:'🍅',
@@ -796,7 +866,13 @@ const RECIPES = [
       {text:'下番茄块中火炒出沙，加糖提鲜。',timer:120},
       {text:'倒入鸡蛋翻炒均匀，撒葱花出锅。',timer:60}
     ],
-    related:['番茄','鸡蛋']
+    related:['番茄','鸡蛋'],
+    beginnerTips:[
+      {type:'principle',title:'为什么先炒蛋盛出',content:'鸡蛋炒熟只需几十秒，和番茄一起久炒会老得像橡皮。分开炒，番茄出沙后再混合，蛋嫩番茄浓。'},
+      {type:'mistake',title:'常见错误：番茄不出汁',content:'番茄没炒出沙就下蛋。要中火慢慢炒到番茄软烂出红汁，可加一点盐帮助出汁。'},
+      {type:'key',title:'关键技巧：加糖提鲜',content:'半勺糖中和番茄的酸，突出鲜味。这是饭店版和家庭版的最大差别。'},
+      {type:'key',title:'蛋液加几滴水',content:'打蛋时加一小勺水，炒出来更蓬松嫩滑。'}
+    ]
   },
   {
     id:'r12', name:'糖醋排骨', emoji:'🍖',
@@ -818,7 +894,13 @@ const RECIPES = [
       {text:'加生抽、醋、热水没过排骨，大火烧开转小火炖30分钟。',timer:1800},
       {text:'大火收汁，撒白芝麻出锅。',timer:120}
     ],
-    related:['排骨','姜']
+    related:['排骨','姜'],
+    beginnerTips:[
+      {type:'principle',title:'为什么肉质更紧实',content:'视频里的知识点：排骨焯水后直接烹饪，肉质紧实有嚼劲；如果想要软烂脱骨，就多炖一会儿。两种口感都对，看你喜欢。'},
+      {type:'mistake',title:'常见错误：汤汁不浓稠',content:'视频反面教材——收汁不到位。最后要大火收汁，不断翻动让糖醋汁裹住排骨，收到汤汁粘稠挂勺。'},
+      {type:'key',title:'关键技巧：黄金比例12345',content:'料酒1:生抽2:糖3:醋4:水5，记住这个比例糖醋味不会错。醋分两次放，炖时放一半，出锅前沿锅边烹一半，酸味层次更好。'},
+      {type:'mistake',title:'盐最后放',content:'视频里的细节：盐要最后放一点点。盐放早了肉质收缩，而且糖醋菜主要靠糖醋出味，盐只是点缀。'}
+    ]
   },
   {
     id:'r13', name:'地三鲜', emoji:'🥔',
@@ -840,7 +922,13 @@ const RECIPES = [
       {text:'爆香蒜末，下青椒翻炒，倒入土豆茄子。',timer:90},
       {text:'加生抽、老抽、糖、少许水，焖2分钟收汁。',timer:120}
     ],
-    related:['土豆','茄子','青椒']
+    related:['土豆','茄子','青椒'],
+    beginnerTips:[
+      {type:'principle',title:'为什么茄子要裹淀粉',content:'茄子像海绵会疯狂吸油。裹一层薄淀粉形成外壳，既减少吸油，又让茄子外酥里嫩。'},
+      {type:'mistake',title:'常见错误：油腻到没法吃',content:'茄子直接下油锅，吸油量能超过自重。记住：盐腌10分钟→挤水→裹淀粉→再炸，三步缺一不可。'},
+      {type:'key',title:'关键技巧：分开炸',content:'土豆难熟先炸，茄子易熟后炸，青椒最后过油10秒。成熟度不同，一锅炸必然有的生有的糊。'},
+      {type:'key',title:'少油版',content:'新手怕油可以先把土豆茄子蒸8分熟，再下锅快炒，油量能减一半。'}
+    ]
   },
   {
     id:'r14', name:'酸辣土豆丝', emoji:'🌶️',
@@ -860,7 +948,13 @@ const RECIPES = [
       {text:'下土豆丝大火快炒1分钟。',timer:60},
       {text:'沿锅边淋醋，加盐调味，炒匀出锅。',timer:30}
     ],
-    related:['土豆','大蒜']
+    related:['土豆','大蒜'],
+    beginnerTips:[
+      {type:'principle',title:'为什么要泡水去淀粉',content:'土豆表面的淀粉不洗掉，下锅就粘锅糊化，土豆丝粘成坨。泡到水变清，炒出来才根根分明。'},
+      {type:'mistake',title:'常见错误：软塌塌不脆',content:'炒太久。土豆丝大火快炒1分钟足够，看到土豆丝变透明立刻调味出锅。多炒30秒就从脆变面。'},
+      {type:'key',title:'关键技巧：醋沿锅边淋',content:'锅边温度最高，醋淋在锅边"呲啦"一声，醋酸挥发留下醋香。直接倒在菜上只有酸味没有香味。'},
+      {type:'key',title:'切比擦好',content:'刀切的土豆丝截面平整口感脆，擦丝器擦的截面毛糙容易软。新手切不细没关系，均匀最重要。'}
+    ]
   },
   {
     id:'r15', name:'蚝油生菜', emoji:'🥬',
@@ -879,7 +973,13 @@ const RECIPES = [
       {text:'爆香蒜末，加蚝油、生抽、少许糖和水煮开。',timer:60},
       {text:'淋在生菜上即可。',timer:0}
     ],
-    related:['生菜','大蒜']
+    related:['生菜','大蒜'],
+    beginnerTips:[
+      {type:'principle',title:'为什么焯水要加盐和油',content:'水中加盐让生菜入底味，加几滴油让菜叶裹上油膜，出锅后保持翠绿不发黄。'},
+      {type:'mistake',title:'常见错误：生菜发黄发黑',content:'焯水超过10秒，或焯完焖在锅里。生菜焯水"似开微开"的状态（水将开未开冒小泡）下锅最好，10秒立刻捞出。'},
+      {type:'key',title:'关键技巧：摆盘再淋汁',content:'焯好的生菜先摆盘，蚝油汁单独烧开淋上去。菜泡在汁里煮就黄了。'},
+      {type:'key',title:'蚝油先稀释',content:'蚝油直接下锅容易糊。加少量水化开再加热，汁才均匀。'}
+    ]
   },
   {
     id:'r16', name:'土豆炖牛腩', emoji:'🥘',
@@ -901,7 +1001,13 @@ const RECIPES = [
       {text:'下土豆胡萝卜，再炖20分钟至软烂。',timer:1200},
       {text:'大火收汁，尝味调整。',timer:120}
     ],
-    related:['牛腩','土豆','胡萝卜']
+    related:['牛腩','土豆','胡萝卜'],
+    beginnerTips:[
+      {type:'principle',title:'为什么牛腩要炖1小时以上',content:'牛腩的胶原蛋白需要长时间（60分钟以上）加热才能转化成明胶，这就是"酥烂"的原理。炖40分钟的牛腩咬不动，炖90分钟才入口即化。'},
+      {type:'mistake',title:'常见错误：土豆炖成糊',content:'土豆和牛腩同时下锅，牛腩烂了土豆早成糊了。正确顺序：牛腩先炖40分钟，再下土豆炖20分钟。'},
+      {type:'key',title:'关键技巧：牛腩选肋条或坑腩',content:'带一点脂肪和筋膜的牛腩炖出来才香。纯瘦的部位炖再久也柴。'},
+      {type:'key',title:'焯水后热水冲洗',content:'焯完的牛腩用温水或热水冲洗，用冷水肉质收缩，后面怎么炖都不容易烂。'}
+    ]
   },
   {
     id:'r17', name:'红烧茄子', emoji:'🍆',
@@ -921,7 +1027,13 @@ const RECIPES = [
       {text:'爆香蒜末，加生抽老抽糖和少许水烧开。',timer:60},
       {text:'下茄子翻炒均匀，收汁出锅。',timer:90}
     ],
-    related:['茄子','大蒜']
+    related:['茄子','大蒜'],
+    beginnerTips:[
+      {type:'principle',title:'为什么茄子先腌后炸',content:'盐腌让茄子细胞失水，海绵结构塌掉，吸油量减少一半以上。这是少油做茄子的核心技巧。'},
+      {type:'mistake',title:'常见错误：又油又黑',content:'不腌直接炸（吸油），或者用铁锅炒（茄子里的酚类物质遇铁变黑）。用不粘锅或不锈钢锅颜色更漂亮。'},
+      {type:'key',title:'关键技巧：蒜末最后放',content:'红烧茄子的蒜香是出锅前的灵魂。蒜放早了香味全跑了。'},
+      {type:'key',title:'蒸制法',content:'更省油的做法：茄子切条蒸8分钟再红烧，口感一样软糯，油只用一点点。'}
+    ]
   },
   {
     id:'r18', name:'干煸豆角', emoji:'🫛',
@@ -941,7 +1053,13 @@ const RECIPES = [
       {text:'爆香肉末、干辣椒、蒜末。',timer:60},
       {text:'下豆角，加生抽盐调味，炒匀出锅。',timer:60}
     ],
-    related:['大蒜','猪肉末']
+    related:['大蒜','猪肉末'],
+    beginnerTips:[
+      {type:'principle',title:'为什么豆角必须做熟',content:'生豆角含有皂苷和植物血凝素，吃了会中毒（恶心呕吐腹泻）。豆角必须彻底加热到失去生绿色、表皮起皱才安全。'},
+      {type:'mistake',title:'常见错误：外糊里生',content:'火太大。干煸要中小火慢慢来，让热量渗到豆角内部。大火只会外皮糊了里面还是生的。'},
+      {type:'key',title:'关键技巧：先沥干水',content:'豆角洗完必须彻底沥干或用厨房纸擦干，带水下锅会溅油，而且变成煮豆角不是干煸。'},
+      {type:'key',title:'煸到虎皮',content:'豆角煸到表皮起皱微微发焦（虎皮状），这时才熟透且干香。'}
+    ]
   },
   {
     id:'r19', name:'白灼虾', emoji:'🦐',
@@ -961,7 +1079,13 @@ const RECIPES = [
       {text:'过冰水让虾肉更Q弹。',timer:60},
       {text:'蘸生抽香油碟吃。',timer:0}
     ],
-    related:['鲜虾','姜','大葱']
+    related:['鲜虾','姜','大葱'],
+    beginnerTips:[
+      {type:'principle',title:'为什么过冰水',content:'虾煮熟后立刻泡冰水，热胀冷缩让虾肉急剧收缩，口感Q弹。不过冰水的虾肉发绵。'},
+      {type:'mistake',title:'常见错误：虾肉老',content:'水开下虾煮到变红弯曲就捞（约2分钟），煮5分钟以上肉就老了。虾熟的速度比你想象的快。'},
+      {type:'key',title:'关键技巧：挑虾线',content:'用牙签从虾背第二节挑出黑色的虾线（肠道），不去掉有泥沙腥味。'},
+      {type:'key',title:'姜葱料酒下锅',content:'水里先放姜片葱段料酒烧开，再下虾，去腥增香。冷水下虾虾肉会散。'}
+    ]
   },
   {
     id:'r20', name:'红烧带鱼', emoji:'🐟',
@@ -982,7 +1106,13 @@ const RECIPES = [
       {text:'爆香姜蒜，加生抽老抽料酒糖醋和少许水。',timer:60},
       {text:'大火烧开转小火焖5分钟，收汁出锅。',timer:300}
     ],
-    related:['带鱼','姜','大蒜']
+    related:['带鱼','姜','大蒜'],
+    beginnerTips:[
+      {type:'principle',title:'为什么要吸干水分',content:'带鱼表面的银脂和水下锅会疯狂溅油，而且鱼皮会破。厨房纸彻底吸干，煎出来完整不破皮。'},
+      {type:'mistake',title:'常见错误：鱼肉散碎',content:'煎的时候频繁翻动。正确做法：下锅后不要动，煎2分钟定型后再翻面，全程只翻一次。'},
+      {type:'key',title:'关键技巧：银脂别刮',content:'带鱼表面的银白色物质（银脂）是好东西，富含不饱和脂肪酸，越亮越新鲜，不用刮掉。'},
+      {type:'key',title:'加醋去腥',content:'红烧时加半勺醋，醋酸挥发带走腥味，只留下香味，吃不出酸味。'}
+    ]
   },
   {
     id:'r21', name:'香菇青菜', emoji:'🥬',
@@ -1002,7 +1132,13 @@ const RECIPES = [
       {text:'下青菜大火快炒至变软。',timer:90},
       {text:'加蚝油和盐调味，炒匀出锅。',timer:30}
     ],
-    related:['香菇','大蒜']
+    related:['香菇','大蒜'],
+    beginnerTips:[
+      {type:'principle',title:'为什么先炒香菇',content:'香菇的香味物质（鸟苷酸）需要油炒才能释放。先炒香菇出香味，再下青菜，香味才能融合。'},
+      {type:'mistake',title:'常见错误：一盘水',content:'青菜洗完没沥干，或小火慢炒出水。大火快炒，青菜断生立刻出锅，盘子才干净。'},
+      {type:'key',title:'关键技巧：干香菇更香',content:'干香菇的鸟苷酸含量是鲜香菇的几倍。泡干香菇的水别倒，沉淀后取上层清液当高汤用。'},
+      {type:'key',title:'全程大火',content:'绿叶菜要大火快炒，总时间不超过2分钟。'}
+    ]
   },
   {
     id:'r22', name:'玉米排骨汤', emoji:'🌽',
@@ -1023,7 +1159,13 @@ const RECIPES = [
       {text:'下玉米胡萝卜再炖20分钟。',timer:1200},
       {text:'加盐调味，撒葱花出锅。',timer:0}
     ],
-    related:['排骨','玉米','胡萝卜']
+    related:['排骨','玉米','胡萝卜'],
+    beginnerTips:[
+      {type:'principle',title:'为什么汤要小火慢炖',content:'大火沸腾会让蛋白质和脂肪乳化，汤变浑浊。小火保持微沸（似开微开），汤清味鲜。'},
+      {type:'mistake',title:'常见错误：汤腥肉柴',content:'排骨没焯水，或焯水后没冲洗浮沫。血沫是腥味的来源，必须冷水下锅焯透洗净。'},
+      {type:'key',title:'关键技巧：玉米须别扔',content:'玉米须一起炖汤有淡淡甜味，还有利水消肿的功效（当然主要是好吃）。'},
+      {type:'key',title:'盐最后放',content:'盐放早了会让肉质收紧，汤味进不去。出锅前10分钟再放盐。'}
+    ]
   },
   {
     id:'r23', name:'凉拌黄瓜', emoji:'🥒',
@@ -1043,7 +1185,13 @@ const RECIPES = [
       {text:'倒掉腌出的水，加蒜末、小米辣。',timer:0},
       {text:'加生抽、醋、糖、香油拌匀。',timer:0}
     ],
-    related:['黄瓜','大蒜','小米辣']
+    related:['黄瓜','大蒜','小米辣'],
+    beginnerTips:[
+      {type:'principle',title:'为什么拍比切好吃',content:'拍黄瓜表面坑洼不平，更容易挂住料汁入味。刀切的切面光滑，料汁挂不住。这就是"拍黄瓜比切黄瓜入味"的原理。'},
+      {type:'mistake',title:'常见错误：一盘水',content:'黄瓜没腌就直接拌。拍好的黄瓜加盐腌10分钟，倒掉杀出的水再拌，脆爽不出汤。'},
+      {type:'key',title:'关键技巧：料汁最后淋',content:'吃之前再拌料汁，拌早了黄瓜持续出水，越泡越软。'},
+      {type:'key',title:'冷藏更佳',content:'夏天冷藏半小时再吃，脆度翻倍。'}
+    ]
   },
   {
     id:'r24', name:'回锅肉', emoji:'🥓',
@@ -1065,7 +1213,13 @@ const RECIPES = [
       {text:'下豆瓣酱豆豉炒出红油，加青椒翻炒。',timer:120},
       {text:'加蒜苗炒匀出锅。',timer:60}
     ],
-    related:['五花肉','青椒','姜']
+    related:['五花肉','青椒','姜'],
+    beginnerTips:[
+      {type:'principle',title:'为什么叫"回锅"',content:'先煮后炒，肉要回一次锅，所以叫回锅肉。煮到七八分熟的五花肉再切片煸炒，肥而不腻。'},
+      {type:'mistake',title:'常见错误：肉片又厚又腻',content:'两个原因：1.肉没晾凉就切，切不薄 2.煸炒时间不够，油脂没煸出来。肉煮好放凉（或冰箱冷藏半小时）才能切出薄片。'},
+      {type:'key',title:'关键技巧：灯盏窝',content:'肉片煸炒到微微卷曲、边缘焦黄（行话叫"灯盏窝"），这时油脂煸出来了，肥而不腻。'},
+      {type:'key',title:'豆瓣酱剁细',content:'豆瓣酱剁碎再炒，炒出红油才香。整团下锅有豆瓣颗粒，香味出不来。蒜苗最后放，断生就出锅。'}
+    ]
   }
 ];
 
@@ -1262,6 +1416,14 @@ function openRecipe(id){
           ${s.timer?`<div class="step-timer">⏱ ${s.timer<60?s.timer+'秒':Math.floor(s.timer/60)+'分'+(s.timer%60?s.timer%60+'秒':'')}</div>`:''}</div>
         </div>`).join('')}</div>
     </div>
+    ${r.beginnerTips?`
+    <div class="detail-section"><h3>🎓 新手教程</h3>
+      <div class="beginner-tips">${r.beginnerTips.map(t=>`
+        <div class="tip-card tip-${t.type}">
+          <div class="tip-header">${t.type==='principle'?'🔬':t.type==='mistake'?'⚠️':'✅'} ${t.title}</div>
+          <div class="tip-content">${t.content}</div>
+        </div>`).join('')}</div>
+    </div>`:''}
     <div class="detail-section"><h3>💛 美味记忆与双人打分</h3>
       <div class="dual-rating">
         <div class="rater"><div class="rater-name">🐰 小兔打分</div>
