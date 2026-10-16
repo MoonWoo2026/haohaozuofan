@@ -730,6 +730,342 @@ const RECIPES = [
       {text:'出锅撒花椒粉、葱花，趁热吃。',timer:0}
     ],
     related:['豆腐','牛肉']
+  },
+  {
+    id:'r9', name:'宫保鸡丁', emoji:'🍗',
+    desc:'糊辣荔枝口，鸡丁滑嫩，花生米香脆。',
+    source:'川菜经典家常菜',
+    difficulty:'中等', time:25, servings:'2人份',
+    tags:['川菜','下饭','鸡肉','经典'],
+    rating:5,
+    ingredients:[
+      {name:'鸡腿',amt:'2个',cat:'肉类'},{name:'花生米',amt:'50g',cat:'调味'},
+      {name:'干辣椒',amt:'6个',cat:'调味'},{name:'花椒',amt:'1小把',cat:'调味'},
+      {name:'大葱',amt:'1根',cat:'调味'},{name:'姜',amt:'3片',cat:'调味'},
+      {name:'蒜',amt:'3瓣',cat:'调味'},{name:'生抽',amt:'1勺',cat:'调味'},
+      {name:'醋',amt:'1勺',cat:'调味'},{name:'糖',amt:'1勺',cat:'调味'}
+    ],
+    steps:[
+      {text:'鸡腿去骨切丁，加料酒、生抽、淀粉抓匀腌15分钟。',timer:0},
+      {text:'调宫保汁：生抽1勺、醋1勺、糖1勺、料酒1勺、淀粉半勺、清水2勺。',timer:0},
+      {text:'花生米冷油下锅，小火炸至微黄捞出。',timer:180},
+      {text:'鸡丁滑炒至变色盛出。',timer:120},
+      {text:'爆香干辣椒花椒，下葱姜蒜，倒入鸡丁和料汁大火收汁。',timer:120},
+      {text:'关火拌入花生米，出锅。',timer:30}
+    ],
+    related:['鸡腿','大葱','姜']
+  },
+  {
+    id:'r10', name:'鱼香肉丝', emoji:'🐟',
+    desc:'酸甜咸辣兼备，肉丝滑嫩，下饭神器。',
+    source:'川菜经典家常菜',
+    difficulty:'中等', time:20, servings:'2人份',
+    tags:['川菜','下饭','猪肉','经典'],
+    rating:5,
+    ingredients:[
+      {name:'猪里脊',amt:'200g',cat:'肉类'},{name:'木耳',amt:'5朵',cat:'蔬菜'},
+      {name:'胡萝卜',amt:'半根',cat:'蔬菜'},{name:'青椒',amt:'1个',cat:'蔬菜'},
+      {name:'泡椒',amt:'2勺',cat:'调味'},{name:'姜',amt:'3片',cat:'调味'},
+      {name:'蒜',amt:'3瓣',cat:'调味'},{name:'生抽',amt:'2勺',cat:'调味'},
+      {name:'醋',amt:'1.5勺',cat:'调味'},{name:'糖',amt:'1.5勺',cat:'调味'}
+    ],
+    steps:[
+      {text:'里脊切丝，加生抽、淀粉、少许油抓匀腌10分钟。',timer:0},
+      {text:'木耳泡发切丝，胡萝卜青椒切丝。调鱼香汁：生抽2勺、醋1.5勺、糖1.5勺、淀粉1勺、清水3勺。',timer:0},
+      {text:'肉丝滑炒至变色盛出。',timer:120},
+      {text:'爆香泡椒、姜蒜，下蔬菜丝炒软。',timer:120},
+      {text:'倒入肉丝和鱼香汁，大火收汁至浓稠。',timer:90}
+    ],
+    related:['猪里脊','木耳','胡萝卜','青椒']
+  },
+  {
+    id:'r11', name:'西红柿炒鸡蛋', emoji:'🍅',
+    desc:'国民下饭菜，酸甜开胃，五分钟快手。',
+    source:'国民家常菜',
+    difficulty:'简单', time:10, servings:'2人份',
+    tags:['家常菜','快手','素菜','下饭'],
+    rating:5,
+    ingredients:[
+      {name:'番茄',amt:'2个',cat:'蔬菜'},{name:'鸡蛋',amt:'3个',cat:'蛋类'},
+      {name:'小葱',amt:'1根',cat:'调味'},{name:'糖',amt:'半勺',cat:'调味'},
+      {name:'盐',amt:'适量',cat:'调味'}
+    ],
+    steps:[
+      {text:'鸡蛋加少许盐打散，番茄切块。',timer:0},
+      {text:'热油下鸡蛋，凝固后划散盛出。',timer:60},
+      {text:'下番茄块中火炒出沙，加糖提鲜。',timer:120},
+      {text:'倒入鸡蛋翻炒均匀，撒葱花出锅。',timer:60}
+    ],
+    related:['番茄','鸡蛋']
+  },
+  {
+    id:'r12', name:'糖醋排骨', emoji:'🍖',
+    desc:'酸甜可口，排骨酥烂，小朋友最爱。',
+    source:'经典家常菜',
+    difficulty:'中等', time:50, servings:'2-3人份',
+    tags:['家常菜','硬菜','猪肉','宴客'],
+    rating:5,
+    ingredients:[
+      {name:'排骨',amt:'500g',cat:'肉类'},{name:'冰糖',amt:'30g',cat:'调味'},
+      {name:'醋',amt:'3勺',cat:'调味'},{name:'生抽',amt:'2勺',cat:'调味'},
+      {name:'料酒',amt:'1勺',cat:'调味'},{name:'姜',amt:'3片',cat:'调味'},
+      {name:'白芝麻',amt:'少许',cat:'调味'}
+    ],
+    steps:[
+      {text:'排骨冷水下锅，加姜片料酒焯水去血沫。',timer:300},
+      {text:'捞出冲洗干净，沥干备用。',timer:0},
+      {text:'冰糖小火炒至枣红色，下排骨翻炒上色。',timer:120},
+      {text:'加生抽、醋、热水没过排骨，大火烧开转小火炖30分钟。',timer:1800},
+      {text:'大火收汁，撒白芝麻出锅。',timer:120}
+    ],
+    related:['排骨','姜']
+  },
+  {
+    id:'r13', name:'地三鲜', emoji:'🥔',
+    desc:'东北经典，土豆茄子青椒，咸香下饭。',
+    source:'东北经典家常菜',
+    difficulty:'中等', time:25, servings:'2人份',
+    tags:['家常菜','素菜','下饭','东北菜'],
+    rating:4,
+    ingredients:[
+      {name:'土豆',amt:'1个',cat:'蔬菜'},{name:'茄子',amt:'1根',cat:'蔬菜'},
+      {name:'青椒',amt:'1个',cat:'蔬菜'},{name:'蒜',amt:'3瓣',cat:'调味'},
+      {name:'生抽',amt:'2勺',cat:'调味'},{name:'老抽',amt:'半勺',cat:'调味'},
+      {name:'糖',amt:'半勺',cat:'调味'},{name:'淀粉',amt:'1勺',cat:'调味'}
+    ],
+    steps:[
+      {text:'土豆、茄子切滚刀块，青椒切片。土豆泡水去淀粉。',timer:0},
+      {text:'茄子撒盐腌10分钟，挤掉水分裹薄淀粉。',timer:0},
+      {text:'土豆炸至金黄捞出，茄子炸软捞出。',timer:300},
+      {text:'爆香蒜末，下青椒翻炒，倒入土豆茄子。',timer:90},
+      {text:'加生抽、老抽、糖、少许水，焖2分钟收汁。',timer:120}
+    ],
+    related:['土豆','茄子','青椒']
+  },
+  {
+    id:'r14', name:'酸辣土豆丝', emoji:'🌶️',
+    desc:'酸辣脆爽，开胃下饭，快手素菜。',
+    source:'国民家常菜',
+    difficulty:'简单', time:10, servings:'2人份',
+    tags:['家常菜','快手','素菜','下饭','辣'],
+    rating:4,
+    ingredients:[
+      {name:'土豆',amt:'2个',cat:'蔬菜'},{name:'干辣椒',amt:'3个',cat:'调味'},
+      {name:'蒜',amt:'2瓣',cat:'调味'},{name:'醋',amt:'1勺',cat:'调味'},
+      {name:'盐',amt:'适量',cat:'调味'},{name:'花椒',amt:'几粒',cat:'调味'}
+    ],
+    steps:[
+      {text:'土豆切细丝，泡水去淀粉，捞出沥干。',timer:0},
+      {text:'热油爆香花椒、干辣椒、蒜末。',timer:30},
+      {text:'下土豆丝大火快炒1分钟。',timer:60},
+      {text:'沿锅边淋醋，加盐调味，炒匀出锅。',timer:30}
+    ],
+    related:['土豆','大蒜']
+  },
+  {
+    id:'r15', name:'蚝油生菜', emoji:'🥬',
+    desc:'清爽脆嫩，蚝鲜浓郁，五分钟上桌。',
+    source:'粤式家常菜',
+    difficulty:'简单', time:8, servings:'2人份',
+    tags:['家常菜','快手','素菜','清淡'],
+    rating:4,
+    ingredients:[
+      {name:'生菜',amt:'1颗',cat:'蔬菜'},{name:'蒜',amt:'3瓣',cat:'调味'},
+      {name:'蚝油',amt:'1勺',cat:'调味'},{name:'生抽',amt:'半勺',cat:'调味'},
+      {name:'糖',amt:'少许',cat:'调味'}
+    ],
+    steps:[
+      {text:'生菜洗净，水开加几滴油和盐，焯水10秒捞出摆盘。',timer:10},
+      {text:'爆香蒜末，加蚝油、生抽、少许糖和水煮开。',timer:60},
+      {text:'淋在生菜上即可。',timer:0}
+    ],
+    related:['生菜','大蒜']
+  },
+  {
+    id:'r16', name:'土豆炖牛腩', emoji:'🥘',
+    desc:'土豆绵软，牛腩酥烂，汤汁拌饭一绝。',
+    source:'经典炖菜',
+    difficulty:'中等', time:70, servings:'3-4人份',
+    tags:['硬菜','炖菜','下饭','牛肉'],
+    rating:5,
+    ingredients:[
+      {name:'牛腩',amt:'500g',cat:'肉类'},{name:'土豆',amt:'2个',cat:'蔬菜'},
+      {name:'胡萝卜',amt:'1根',cat:'蔬菜'},{name:'姜',amt:'3片',cat:'调味'},
+      {name:'八角',amt:'1个',cat:'调味'},{name:'生抽',amt:'2勺',cat:'调味'},
+      {name:'老抽',amt:'半勺',cat:'调味'},{name:'冰糖',amt:'1小把',cat:'调味'}
+    ],
+    steps:[
+      {text:'牛腩切块焯水，土豆胡萝卜切滚刀块。',timer:0},
+      {text:'炒糖色，下牛腩翻炒上色。',timer:120},
+      {text:'加姜片八角、生抽老抽，加热水没过牛肉，大火烧开转小火炖40分钟。',timer:2400},
+      {text:'下土豆胡萝卜，再炖20分钟至软烂。',timer:1200},
+      {text:'大火收汁，尝味调整。',timer:120}
+    ],
+    related:['牛腩','土豆','胡萝卜']
+  },
+  {
+    id:'r17', name:'红烧茄子', emoji:'🍆',
+    desc:'茄子软糯入味，酱香浓郁，超级下饭。',
+    source:'经典家常菜',
+    difficulty:'简单', time:15, servings:'2人份',
+    tags:['家常菜','素菜','下饭'],
+    rating:4,
+    ingredients:[
+      {name:'茄子',amt:'2根',cat:'蔬菜'},{name:'蒜',amt:'3瓣',cat:'调味'},
+      {name:'生抽',amt:'2勺',cat:'调味'},{name:'老抽',amt:'半勺',cat:'调味'},
+      {name:'糖',amt:'半勺',cat:'调味'},{name:'淀粉',amt:'1勺',cat:'调味'}
+    ],
+    steps:[
+      {text:'茄子切滚刀块，撒盐腌10分钟挤掉水分。',timer:0},
+      {text:'裹薄淀粉，油热下锅炸至微黄捞出。',timer:180},
+      {text:'爆香蒜末，加生抽老抽糖和少许水烧开。',timer:60},
+      {text:'下茄子翻炒均匀，收汁出锅。',timer:90}
+    ],
+    related:['茄子','大蒜']
+  },
+  {
+    id:'r18', name:'干煸豆角', emoji:'🫛',
+    desc:'豆角干香入味，微辣下饭，家常经典。',
+    source:'经典家常菜',
+    difficulty:'中等', time:20, servings:'2人份',
+    tags:['家常菜','素菜','下饭','辣'],
+    rating:4,
+    ingredients:[
+      {name:'豆角',amt:'300g',cat:'蔬菜'},{name:'猪肉末',amt:'50g',cat:'肉类'},
+      {name:'干辣椒',amt:'3个',cat:'调味'},{name:'蒜',amt:'2瓣',cat:'调味'},
+      {name:'生抽',amt:'1勺',cat:'调味'},{name:'盐',amt:'适量',cat:'调味'}
+    ],
+    steps:[
+      {text:'豆角掰段，洗净沥干。',timer:0},
+      {text:'热油中小火煸豆角至表皮起皱微焦，盛出。',timer:600},
+      {text:'爆香肉末、干辣椒、蒜末。',timer:60},
+      {text:'下豆角，加生抽盐调味，炒匀出锅。',timer:60}
+    ],
+    related:['大蒜','猪肉末']
+  },
+  {
+    id:'r19', name:'白灼虾', emoji:'🦐',
+    desc:'原汁原味，鲜甜Q弹，最大程度保留虾的鲜。',
+    source:'粤式经典做法',
+    difficulty:'简单', time:8, servings:'2人份',
+    tags:['海鲜','快手','清淡','宴客'],
+    rating:5,
+    ingredients:[
+      {name:'鲜虾',amt:'300g',cat:'海鲜'},{name:'姜',amt:'3片',cat:'调味'},
+      {name:'葱',amt:'1根',cat:'调味'},{name:'料酒',amt:'1勺',cat:'调味'},
+      {name:'生抽',amt:'2勺',cat:'调味'},{name:'香油',amt:'几滴',cat:'调味'}
+    ],
+    steps:[
+      {text:'虾剪须挑虾线，洗净。',timer:0},
+      {text:'水开加姜片、葱段、料酒，下虾煮2分钟变红捞出。',timer:120},
+      {text:'过冰水让虾肉更Q弹。',timer:60},
+      {text:'蘸生抽香油碟吃。',timer:0}
+    ],
+    related:['鲜虾','姜','大葱']
+  },
+  {
+    id:'r20', name:'红烧带鱼', emoji:'🐟',
+    desc:'带鱼酥香入味，酱汁浓郁，下饭好菜。',
+    source:'经典家常菜',
+    difficulty:'中等', time:25, servings:'2人份',
+    tags:['海鲜','下饭','家常菜'],
+    rating:4,
+    ingredients:[
+      {name:'带鱼',amt:'400g',cat:'海鲜'},{name:'姜',amt:'3片',cat:'调味'},
+      {name:'蒜',amt:'3瓣',cat:'调味'},{name:'生抽',amt:'2勺',cat:'调味'},
+      {name:'老抽',amt:'半勺',cat:'调味'},{name:'料酒',amt:'1勺',cat:'调味'},
+      {name:'糖',amt:'半勺',cat:'调味'},{name:'醋',amt:'半勺',cat:'调味'}
+    ],
+    steps:[
+      {text:'带鱼切段，用厨房纸吸干水分。',timer:0},
+      {text:'热油下锅煎至两面金黄。',timer:300},
+      {text:'爆香姜蒜，加生抽老抽料酒糖醋和少许水。',timer:60},
+      {text:'大火烧开转小火焖5分钟，收汁出锅。',timer:300}
+    ],
+    related:['带鱼','姜','大蒜']
+  },
+  {
+    id:'r21', name:'香菇青菜', emoji:'🥬',
+    desc:'清爽鲜美，营养丰富，快手素菜。',
+    source:'家常素菜',
+    difficulty:'简单', time:10, servings:'2人份',
+    tags:['家常菜','快手','素菜','清淡'],
+    rating:4,
+    ingredients:[
+      {name:'青菜',amt:'300g',cat:'蔬菜'},{name:'香菇',amt:'5朵',cat:'蔬菜'},
+      {name:'蒜',amt:'2瓣',cat:'调味'},{name:'蚝油',amt:'1勺',cat:'调味'},
+      {name:'盐',amt:'适量',cat:'调味'}
+    ],
+    steps:[
+      {text:'青菜洗净切段，香菇切片。',timer:0},
+      {text:'爆香蒜末，下香菇炒出香味。',timer:60},
+      {text:'下青菜大火快炒至变软。',timer:90},
+      {text:'加蚝油和盐调味，炒匀出锅。',timer:30}
+    ],
+    related:['香菇','大蒜']
+  },
+  {
+    id:'r22', name:'玉米排骨汤', emoji:'🌽',
+    desc:'汤清甜，玉米甜，排骨香，营养暖身。',
+    source:'经典汤品',
+    difficulty:'简单', time:60, servings:'3-4人份',
+    tags:['汤','清淡','健康','猪肉'],
+    rating:5,
+    ingredients:[
+      {name:'排骨',amt:'400g',cat:'肉类'},{name:'玉米',amt:'1根',cat:'蔬菜'},
+      {name:'胡萝卜',amt:'1根',cat:'蔬菜'},{name:'姜',amt:'3片',cat:'调味'},
+      {name:'盐',amt:'适量',cat:'调味'},{name:'料酒',amt:'1勺',cat:'调味'}
+    ],
+    steps:[
+      {text:'排骨冷水下锅，加姜片料酒焯水。',timer:300},
+      {text:'玉米切段，胡萝卜切滚刀块。',timer:0},
+      {text:'排骨加热水、姜片，大火烧开转小火炖30分钟。',timer:1800},
+      {text:'下玉米胡萝卜再炖20分钟。',timer:1200},
+      {text:'加盐调味，撒葱花出锅。',timer:0}
+    ],
+    related:['排骨','玉米','胡萝卜']
+  },
+  {
+    id:'r23', name:'凉拌黄瓜', emoji:'🥒',
+    desc:'清爽脆嫩，酸辣开胃，夏日必备。',
+    source:'经典凉菜',
+    difficulty:'简单', time:10, servings:'2人份',
+    tags:['凉菜','快手','素菜','清淡'],
+    rating:4,
+    ingredients:[
+      {name:'黄瓜',amt:'2根',cat:'蔬菜'},{name:'蒜',amt:'3瓣',cat:'调味'},
+      {name:'生抽',amt:'1勺',cat:'调味'},{name:'醋',amt:'1勺',cat:'调味'},
+      {name:'香油',amt:'几滴',cat:'调味'},{name:'糖',amt:'少许',cat:'调味'},
+      {name:'小米辣',amt:'1个',cat:'调味'}
+    ],
+    steps:[
+      {text:'黄瓜拍裂切段，加盐腌10分钟杀水。',timer:600},
+      {text:'倒掉腌出的水，加蒜末、小米辣。',timer:0},
+      {text:'加生抽、醋、糖、香油拌匀。',timer:0}
+    ],
+    related:['黄瓜','大蒜','小米辣']
+  },
+  {
+    id:'r24', name:'回锅肉', emoji:'🥓',
+    desc:'川菜之魂，肥而不腻，蒜苗香浓。',
+    source:'川菜经典',
+    difficulty:'中等', time:30, servings:'2人份',
+    tags:['川菜','下饭','猪肉','经典'],
+    rating:5,
+    ingredients:[
+      {name:'五花肉',amt:'300g',cat:'肉类'},{name:'青椒',amt:'2个',cat:'蔬菜'},
+      {name:'蒜苗',amt:'2根',cat:'调味'},{name:'豆瓣酱',amt:'1勺',cat:'调味'},
+      {name:'豆豉',amt:'半勺',cat:'调味'},{name:'姜',amt:'3片',cat:'调味'},
+      {name:'料酒',amt:'1勺',cat:'调味'}
+    ],
+    steps:[
+      {text:'五花肉冷水下锅，加姜片料酒煮20分钟，捞出晾凉切薄片。',timer:1200},
+      {text:'青椒切块，蒜苗切段。',timer:0},
+      {text:'少油下五花肉煸炒至出油微卷。',timer:180},
+      {text:'下豆瓣酱豆豉炒出红油，加青椒翻炒。',timer:120},
+      {text:'加蒜苗炒匀出锅。',timer:60}
+    ],
+    related:['五花肉','青椒','姜']
   }
 ];
 
