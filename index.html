@@ -173,14 +173,10 @@ section.block{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding
 .stars{color:var(--warm-orange);font-size:14px;margin-top:6px}
 
 
-/* ============ 新手教程 ============ */
-.beginner-tips{display:flex;flex-direction:column;gap:12px}
-.tip-card{background:#fff;border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-sm);border-left:4px solid var(--warm-yellow)}
-.tip-card.tip-principle{border-left-color:var(--sage)}
-.tip-card.tip-mistake{border-left-color:var(--terracotta)}
-.tip-card.tip-key{border-left-color:var(--warm-orange)}
-.tip-header{font-weight:bold;font-size:15px;margin-bottom:6px;color:var(--brown)}
-.tip-content{font-size:14px;color:var(--brown-soft);line-height:1.7}
+
+
+.step-tip{font-size:13px;margin-top:8px;padding:8px 12px;background:rgba(255,216,138,.15);border-radius:8px;border-left:3px solid var(--warm-orange);line-height:1.5}
+
 
 /* ============ 弹窗通用 ============ */
 .modal-mask{
@@ -589,12 +585,12 @@ const RECIPES = [
       {name:'料酒',amt:'1勺',cat:'调味'}
     ],
     steps:[
-      {text:'牛腩切3cm见方块，冷水下锅加姜片料酒焯水，撇去浮沫捞出洗净。',timer:0},
+      {text:'牛腩切3cm见方块，冷水下锅加姜片料酒焯水，撇去浮沫捞出洗净。',timer:0,tip:'🔬 冷水下锅才能让血沫慢慢渗出，热水会让肉表面瞬间收紧锁住腥味'},
       {text:'番茄顶部划十字，开水烫后去皮切块；洋葱切块。',timer:0},
       {text:'锅中少许油，下冰糖小火炒至焦糖色，倒入牛腩翻炒上色。',timer:180},
-      {text:'加入洋葱、番茄翻炒出汁，加生抽、料酒、没过食材的热水。',timer:0},
-      {text:'大火烧开后转小火慢炖，让牛腩酥烂入味。',timer:3600},
-      {text:'开盖大火收汁至浓稠，撒葱花出锅。',timer:300}
+      {text:'加入洋葱、番茄翻炒出汁，加生抽、料酒、没过食材的热水。',timer:0,tip:'✅ 必须加热水，加冷水肉会突然收缩变柴'},
+      {text:'大火烧开后转小火慢炖，让牛腩酥烂入味。',timer:3600,tip:'⚠️ 水要一次加够，中途加水汤就不浓了'},
+      {text:'开盖大火收汁至浓稠，撒葱花出锅。',timer:300,tip:'✅ 留一点汤汁拌饭，收太干只剩油肉反而腻'}
     ],
     related:['牛腩','番茄','洋葱'],
     beginnerTips:[
@@ -617,10 +613,10 @@ const RECIPES = [
       {name:'料酒',amt:'1勺',cat:'调味'},{name:'葱段',amt:'适量',cat:'调味'}
     ],
     steps:[
-      {text:'鸡翅两面划刀，冷水下锅加料酒姜片焯水1分钟捞出。',timer:60},
-      {text:'少油煎鸡翅至两面金黄。',timer:300},
-      {text:'倒入可乐没过鸡翅，加生抽、姜片、葱段。',timer:0},
-      {text:'大火烧开转中小火，煮至汤汁浓稠裹满鸡翅。',timer:900},
+      {text:'鸡翅两面划刀，冷水下锅加料酒姜片焯水1分钟捞出。',timer:60,tip:'🔬 煎出金黄焦化层是香味来源，不煎直接炖没香气还容易破皮'}},
+      {text:'少油煎鸡翅至两面金黄。',timer:300,tip:'⚠️ 视频反面教材：水加太多或没收汁，会是一盘子汤'}},
+      {text:'倒入可乐没过鸡翅，加生抽、姜片、葱段。',timer:0,tip:'✅ 用普通可乐别用无糖，糖分才能上色发亮'}},
+      {text:'大火烧开转中小火，煮至汤汁浓稠裹满鸡翅。',timer:900,tip:'⚠️ 煎的时候一面定型再翻，频繁翻动皮会破'}},
       {text:'大火收汁亮油，出锅装盘。',timer:120}
     ],
     related:['鸡翅','可乐'],
@@ -644,10 +640,10 @@ const RECIPES = [
       {name:'料酒',amt:'1勺',cat:'调味'}
     ],
     steps:[
-      {text:'鲈鱼处理干净，鱼身两面划刀，抹料酒和盐腌10分钟。',timer:600},
-      {text:'盘底铺葱段姜片，放上鲈鱼，水开后上锅蒸。',timer:480},
-      {text:'蒸好倒掉腥水，铺上葱姜丝。',timer:0},
-      {text:'淋蒸鱼豉油，热油浇在葱姜丝上激香。',timer:30}
+      {text:'鲈鱼处理干净，鱼身两面划刀，抹料酒和盐腌10分钟。',timer:600,tip:'🔬 一斤鱼大火足汽8分钟刚好，蒸久了蛋白质过度凝固肉就柴'}},
+      {text:'盘底铺葱段姜片，放上鲈鱼，水开后上锅蒸。',timer:480,tip:'⚠️ 鱼腹黑膜没刮干净+蒸出来的腥水没倒掉，是腥味两大来源'}},
+      {text:'蒸好倒掉腥水，铺上葱姜丝。',timer:0,tip:'✅ 水开再上锅，冷水上锅鱼肉在升温过程中慢慢变老'}},
+      {text:'淋蒸鱼豉油，热油浇在葱姜丝上激香。',timer:30,tip:'✅ 最后泼热油，油温不够激发不出葱姜丝香味'}}
     ],
     related:['鲈鱼'],
     beginnerTips:[
@@ -670,10 +666,10 @@ const RECIPES = [
       {name:'蚝油',amt:'1勺',cat:'调味'},{name:'小米辣',amt:'1个',cat:'调味'}
     ],
     steps:[
-      {text:'粉丝温水泡软铺盘底；虾开背去虾线摆在粉丝上。',timer:0},
-      {text:'大蒜剁蓉，一半炸金黄一半生蒜混合，加生抽蚝油调蒜蓉酱。',timer:120},
-      {text:'蒜蓉酱铺在虾背上，水开上锅蒸。',timer:360},
-      {text:'撒葱花小米辣，淋热油激香即可。',timer:30}
+      {text:'粉丝温水泡软铺盘底；虾开背去虾线摆在粉丝上。',timer:0,tip:'🔬 开背去虾线同时让虾受热摊开，造型好看更入味'}},
+      {text:'大蒜剁蓉，一半炸金黄一半生蒜混合，加生抽蚝油调蒜蓉酱。',timer:120,tip:'⚠️ 蒸久了虾肉老得像橡皮，水开上锅4分钟足够'}},
+      {text:'蒜蓉酱铺在虾背上，水开上锅蒸。',timer:360,tip:'✅ 金银蒜：一半炸金黄一半生蒜混合，香味层次翻倍'}},
+      {text:'撒葱花小米辣，淋热油激香即可。',timer:30,tip:'✅ 粉丝温水泡10分钟，泡不透蒸完芯是硬的'}}
     ],
     related:['鲜虾','粉丝'],
     beginnerTips:[
@@ -697,10 +693,10 @@ const RECIPES = [
       {name:'姜葱',amt:'适量',cat:'调味'}
     ],
     steps:[
-      {text:'五花肉切2.5cm方块，冷水下锅焯水去血沫。',timer:300},
-      {text:'少许油下冰糖，小火炒糖色至琥珀色。',timer:180},
-      {text:'下五花肉翻炒裹糖色，加料酒、生抽、老抽、八角、姜葱。',timer:0},
-      {text:'加热水没过肉，大火烧开转小火慢炖。',timer:2700},
+      {text:'五花肉切2.5cm方块，冷水下锅焯水去血沫。',timer:300,tip:'🔬 糖色是红亮色泽和焦糖香的来源，老抽给不了'}},
+      {text:'少许油下冰糖，小火炒糖色至琥珀色。',timer:180,tip:'⚠️ 糖色从冒泡到枣红只有几秒，宁可嫩一点不可老一分'}},
+      {text:'下五花肉翻炒裹糖色，加料酒、生抽、老抽、八角、姜葱。',timer:0,tip:'⚠️ 煸炒出油脂不能省，炖不够40分钟肉会柴'}},
+      {text:'加热水没过肉，大火烧开转小火慢炖。',timer:2700,tip:'✅ 必须加滚烫开水，炒完糖色的肉遇冷水急剧收缩怎么炖都柴'}},
       {text:'开盖大火收汁至浓稠油亮。',timer:300}
     ],
     related:['五花肉'],
@@ -723,9 +719,9 @@ const RECIPES = [
       {name:'盐',amt:'适量',cat:'调味'},{name:'蚝油',amt:'1勺',cat:'调味'}
     ],
     steps:[
-      {text:'西兰花切小朵，淡盐水泡10分钟去虫。',timer:600},
-      {text:'沸水加少许盐油，焯烫西兰花30秒捞出过凉水。',timer:30},
-      {text:'热油爆香蒜末，下西兰花翻炒，加盐蚝油炒匀出锅。',timer:60}
+      {text:'西兰花切小朵，淡盐水泡10分钟去虫。',timer:600,tip:'🔬 焯水加盐入底味，加油形成油膜保持翠绿'}},
+      {text:'沸水加少许盐油，焯烫西兰花30秒捞出过凉水。',timer:30,tip:'⚠️ 焯水超1分钟或炒太久会发黄，30秒足够'}},
+      {text:'热油爆香蒜末，下西兰花翻炒，加盐蚝油炒匀出锅。',timer:60,tip:'✅ 蒜末分两次放，一半爆香一半出锅前撒'}}
     ],
     related:['西兰花'],
     beginnerTips:[
@@ -748,10 +744,10 @@ const RECIPES = [
       {name:'生抽',amt:'少许',cat:'调味'}
     ],
     steps:[
-      {text:'鸡蛋打散，隔夜米饭抓散。',timer:0},
-      {text:'热油下蛋液，刚凝固时倒入米饭快速翻炒，让蛋液裹住米粒。',timer:120},
-      {text:'加盐、少许生抽调味，炒至米粒粒粒分明。',timer:180},
-      {text:'撒葱花翻匀出锅。',timer:30}
+      {text:'鸡蛋打散，隔夜米饭抓散。',timer:0,tip:'⚠️ 别盖锅盖焖，叶绿素被酸性物质破坏瞬间变黄'}},
+      {text:'热油下蛋液，刚凝固时倒入米饭快速翻炒，让蛋液裹住米粒。',timer:120,tip:'⚠️ 锅不够热、油不够多、饭太湿，都会粘成一坨'}},
+      {text:'加盐、少许生抽调味，炒至米粒粒粒分明。',timer:180,tip:'✅ 新手先炒蛋盛出再炒饭最后混合，分开炒各得其所'}},
+      {text:'撒葱花翻匀出锅。',timer:30,tip:'✅ 蛋液拌饭法：蛋液直接拌进冷饭，每粒米裹上蛋金黄分明'}}
     ],
     related:['鸡蛋','米饭'],
     beginnerTips:[
@@ -775,10 +771,10 @@ const RECIPES = [
       {name:'水淀粉',amt:'适量',cat:'调味'}
     ],
     steps:[
-      {text:'豆腐切2cm方块，淡盐水焯烫去豆腥。',timer:120},
-      {text:'热油下牛肉末炒散变色，加豆瓣炒出红油。',timer:180},
-      {text:'加水烧开，下豆腐轻推，小火煮入味。',timer:300},
-      {text:'分两次勾芡，让汤汁浓稠裹住豆腐。',timer:60},
+      {text:'豆腐切2cm方块，淡盐水焯烫去豆腥。',timer:120,tip:'🔬 淡盐水焯豆腐去豆腥、收紧不易碎、入底味'}},
+      {text:'热油下牛肉末炒散变色，加豆瓣炒出红油。',timer:180,tip:'⚠️ 用锅铲翻炒必然碎，晃锅或用锅铲背面轻推'}},
+      {text:'加水烧开，下豆腐轻推，小火煮入味。',timer:300,tip:'✅ 分两次勾芡，第一次薄芡第二次浓芡裹住豆腐'}},
+      {text:'分两次勾芡，让汤汁浓稠裹住豆腐。',timer:60,tip:'✅ 豆瓣酱先炒出红油再下豆腐，颜色红亮不发黑'}},
       {text:'出锅撒花椒粉、葱花，趁热吃。',timer:0}
     ],
     related:['豆腐','牛肉'],
@@ -804,10 +800,10 @@ const RECIPES = [
       {name:'醋',amt:'1勺',cat:'调味'},{name:'糖',amt:'1勺',cat:'调味'}
     ],
     steps:[
-      {text:'鸡腿去骨切丁，加料酒、生抽、淀粉抓匀腌15分钟。',timer:0},
-      {text:'调宫保汁：生抽1勺、醋1勺、糖1勺、料酒1勺、淀粉半勺、清水2勺。',timer:0},
-      {text:'花生米冷油下锅，小火炸至微黄捞出。',timer:180},
-      {text:'鸡丁滑炒至变色盛出。',timer:120},
+      {text:'鸡腿去骨切丁，加料酒、生抽、淀粉抓匀腌15分钟。',timer:0,tip:'🔬 鸡腿肉有脂肪有筋膜怎么炒都嫩，鸡胸水分少过火就柴'}},
+      {text:'调宫保汁：生抽1勺、醋1勺、糖1勺、料酒1勺、淀粉半勺、清水2勺。',timer:0,tip:'⚠️ 花生米和鸡丁一起下锅会受潮，炸花生火大外糊内生'}},
+      {text:'花生米冷油下锅，小火炸至微黄捞出。',timer:180,tip:'✅ 糊辣荔枝口：先下干辣椒花椒小火炒出糊辣香，糖醋1:1'}},
+      {text:'鸡丁滑炒至变色盛出。',timer:120,tip:'✅ 鸡丁加淀粉抓匀上浆，形成保护膜锁住水分'}},
       {text:'爆香干辣椒花椒，下葱姜蒜，倒入鸡丁和料汁大火收汁。',timer:120},
       {text:'关火拌入花生米，出锅。',timer:30}
     ],
@@ -834,10 +830,10 @@ const RECIPES = [
       {name:'醋',amt:'1.5勺',cat:'调味'},{name:'糖',amt:'1.5勺',cat:'调味'}
     ],
     steps:[
-      {text:'里脊切丝，加生抽、淀粉、少许油抓匀腌10分钟。',timer:0},
-      {text:'木耳泡发切丝，胡萝卜青椒切丝。调鱼香汁：生抽2勺、醋1.5勺、糖1.5勺、淀粉1勺、清水3勺。',timer:0},
-      {text:'肉丝滑炒至变色盛出。',timer:120},
-      {text:'爆香泡椒、姜蒜，下蔬菜丝炒软。',timer:120},
+      {text:'里脊切丝，加生抽、淀粉、少许油抓匀腌10分钟。',timer:0,tip:'🔬 鱼香是泡椒姜蒜糖醋调出的味型，泡椒是灵魂'}},
+      {text:'木耳泡发切丝，胡萝卜青椒切丝。调鱼香汁：生抽2勺、醋1.5勺、糖1.5勺、淀粉1勺、清水3勺。',timer:0,tip:'⚠️ 里脊要上浆：加生抽淀粉油抓匀，大火快速变色就盛出'}},
+      {text:'肉丝滑炒至变色盛出。',timer:120,tip:'✅ 鱼香汁提前调好（生抽2:醋1.5:糖1.5），一次性倒入'}},
+      {text:'爆香泡椒、姜蒜，下蔬菜丝炒软。',timer:120,tip:'✅ 泡椒剁碎才能炒出红油和香味'}},
       {text:'倒入肉丝和鱼香汁，大火收汁至浓稠。',timer:90}
     ],
     related:['猪里脊','木耳','胡萝卜','青椒'],
@@ -861,10 +857,10 @@ const RECIPES = [
       {name:'盐',amt:'适量',cat:'调味'}
     ],
     steps:[
-      {text:'鸡蛋加少许盐打散，番茄切块。',timer:0},
-      {text:'热油下鸡蛋，凝固后划散盛出。',timer:60},
-      {text:'下番茄块中火炒出沙，加糖提鲜。',timer:120},
-      {text:'倒入鸡蛋翻炒均匀，撒葱花出锅。',timer:60}
+      {text:'鸡蛋加少许盐打散，番茄切块。',timer:0,tip:'🔬 先炒蛋盛出，和番茄久炒会老得像橡皮'}},
+      {text:'热油下鸡蛋，凝固后划散盛出。',timer:60,tip:'⚠️ 番茄没炒出沙就下蛋，要中火炒到软烂出红汁'}},
+      {text:'下番茄块中火炒出沙，加糖提鲜。',timer:120,tip:'✅ 加半勺糖中和酸味突出鲜味，这是饭店版差别'}},
+      {text:'倒入鸡蛋翻炒均匀，撒葱花出锅。',timer:60,tip:'✅ 蛋液加一小勺水，炒出来更蓬松嫩滑'}}
     ],
     related:['番茄','鸡蛋'],
     beginnerTips:[
@@ -888,10 +884,10 @@ const RECIPES = [
       {name:'白芝麻',amt:'少许',cat:'调味'}
     ],
     steps:[
-      {text:'排骨冷水下锅，加姜片料酒焯水去血沫。',timer:300},
-      {text:'捞出冲洗干净，沥干备用。',timer:0},
-      {text:'冰糖小火炒至枣红色，下排骨翻炒上色。',timer:120},
-      {text:'加生抽、醋、热水没过排骨，大火烧开转小火炖30分钟。',timer:1800},
+      {text:'排骨冷水下锅，加姜片料酒焯水去血沫。',timer:300,tip:'🔬 焯水后直接烹饪肉质紧实有嚼劲，想软烂就多炖'}},
+      {text:'捞出冲洗干净，沥干备用。',timer:0,tip:'⚠️ 收汁不到位会是一盘子汤，要大火收到浓稠挂勺'}},
+      {text:'冰糖小火炒至枣红色，下排骨翻炒上色。',timer:120,tip:'✅ 黄金比例12345：料酒1生抽2糖3醋4水5'}},
+      {text:'加生抽、醋、热水没过排骨，大火烧开转小火炖30分钟。',timer:1800,tip:'✅ 盐最后放一点点，放早了肉质收缩'}},
       {text:'大火收汁，撒白芝麻出锅。',timer:120}
     ],
     related:['排骨','姜'],
@@ -916,10 +912,10 @@ const RECIPES = [
       {name:'糖',amt:'半勺',cat:'调味'},{name:'淀粉',amt:'1勺',cat:'调味'}
     ],
     steps:[
-      {text:'土豆、茄子切滚刀块，青椒切片。土豆泡水去淀粉。',timer:0},
-      {text:'茄子撒盐腌10分钟，挤掉水分裹薄淀粉。',timer:0},
-      {text:'土豆炸至金黄捞出，茄子炸软捞出。',timer:300},
-      {text:'爆香蒜末，下青椒翻炒，倒入土豆茄子。',timer:90},
+      {text:'土豆、茄子切滚刀块，青椒切片。土豆泡水去淀粉。',timer:0,tip:'🔬 茄子裹淀粉形成外壳，减少吸油外酥里嫩'}},
+      {text:'茄子撒盐腌10分钟，挤掉水分裹薄淀粉。',timer:0,tip:'⚠️ 茄子直接下锅吸油量超过自重，必须盐腌挤水裹淀粉'}},
+      {text:'土豆炸至金黄捞出，茄子炸软捞出。',timer:300,tip:'✅ 分开炸：土豆难熟先炸，茄子易熟后炸，青椒最后10秒'}},
+      {text:'爆香蒜末，下青椒翻炒，倒入土豆茄子。',timer:90,tip:'✅ 少油版：土豆茄子先蒸8分熟再下锅快炒'}},
       {text:'加生抽、老抽、糖、少许水，焖2分钟收汁。',timer:120}
     ],
     related:['土豆','茄子','青椒'],
@@ -943,10 +939,10 @@ const RECIPES = [
       {name:'盐',amt:'适量',cat:'调味'},{name:'花椒',amt:'几粒',cat:'调味'}
     ],
     steps:[
-      {text:'土豆切细丝，泡水去淀粉，捞出沥干。',timer:0},
-      {text:'热油爆香花椒、干辣椒、蒜末。',timer:30},
-      {text:'下土豆丝大火快炒1分钟。',timer:60},
-      {text:'沿锅边淋醋，加盐调味，炒匀出锅。',timer:30}
+      {text:'土豆切细丝，泡水去淀粉，捞出沥干。',timer:0,tip:'🔬 泡水去淀粉，不洗掉下锅粘锅糊化粘成坨'}},
+      {text:'热油爆香花椒、干辣椒、蒜末。',timer:30,tip:'⚠️ 炒太久从脆变面，大火快炒1分钟足够'}},
+      {text:'下土豆丝大火快炒1分钟。',timer:60,tip:'✅ 醋沿锅边淋，高温挥发醋酸留下醋香'}},
+      {text:'沿锅边淋醋，加盐调味，炒匀出锅。',timer:30,tip:'✅ 刀切比擦丝器好，截面平整口感脆'}}
     ],
     related:['土豆','大蒜'],
     beginnerTips:[
@@ -969,9 +965,9 @@ const RECIPES = [
       {name:'糖',amt:'少许',cat:'调味'}
     ],
     steps:[
-      {text:'生菜洗净，水开加几滴油和盐，焯水10秒捞出摆盘。',timer:10},
-      {text:'爆香蒜末，加蚝油、生抽、少许糖和水煮开。',timer:60},
-      {text:'淋在生菜上即可。',timer:0}
+      {text:'生菜洗净，水开加几滴油和盐，焯水10秒捞出摆盘。',timer:10,tip:'🔬 焯水加盐入底味，加油保持翠绿不发黄'}},
+      {text:'爆香蒜末，加蚝油、生抽、少许糖和水煮开。',timer:60,tip:'⚠️ 焯水超10秒或焖在锅里会发黄，似开微开状态最好'}},
+      {text:'淋在生菜上即可。',timer:0,tip:'✅ 摆盘再淋汁，菜泡在汁里煮就黄了'}}
     ],
     related:['生菜','大蒜'],
     beginnerTips:[
@@ -995,10 +991,10 @@ const RECIPES = [
       {name:'老抽',amt:'半勺',cat:'调味'},{name:'冰糖',amt:'1小把',cat:'调味'}
     ],
     steps:[
-      {text:'牛腩切块焯水，土豆胡萝卜切滚刀块。',timer:0},
-      {text:'炒糖色，下牛腩翻炒上色。',timer:120},
-      {text:'加姜片八角、生抽老抽，加热水没过牛肉，大火烧开转小火炖40分钟。',timer:2400},
-      {text:'下土豆胡萝卜，再炖20分钟至软烂。',timer:1200},
+      {text:'牛腩切块焯水，土豆胡萝卜切滚刀块。',timer:0,tip:'✅ 蚝油加少量水化开再加热，直接下锅容易糊'}},
+      {text:'炒糖色，下牛腩翻炒上色。',timer:120,tip:'⚠️ 土豆和牛腩同时下锅，牛腩烂了土豆成糊'}},
+      {text:'加姜片八角、生抽老抽，加热水没过牛肉，大火烧开转小火炖40分钟。',timer:2400,tip:'✅ 选带脂肪和筋膜的肋条或坑腩，纯瘦炖再久也柴'}},
+      {text:'下土豆胡萝卜，再炖20分钟至软烂。',timer:1200,tip:'✅ 焯水后热水冲洗，冷水让肉质收缩'}},
       {text:'大火收汁，尝味调整。',timer:120}
     ],
     related:['牛腩','土豆','胡萝卜'],
@@ -1022,10 +1018,10 @@ const RECIPES = [
       {name:'糖',amt:'半勺',cat:'调味'},{name:'淀粉',amt:'1勺',cat:'调味'}
     ],
     steps:[
-      {text:'茄子切滚刀块，撒盐腌10分钟挤掉水分。',timer:0},
-      {text:'裹薄淀粉，油热下锅炸至微黄捞出。',timer:180},
-      {text:'爆香蒜末，加生抽老抽糖和少许水烧开。',timer:60},
-      {text:'下茄子翻炒均匀，收汁出锅。',timer:90}
+      {text:'茄子切滚刀块，撒盐腌10分钟挤掉水分。',timer:0,tip:'🔬 盐腌让茄子细胞失水，海绵结构塌掉吸油减半'}},
+      {text:'裹薄淀粉，油热下锅炸至微黄捞出。',timer:180,tip:'⚠️ 不腌直接炸吸油，用铁锅炒会发黑'}},
+      {text:'爆香蒜末，加生抽老抽糖和少许水烧开。',timer:60,tip:'✅ 蒜末最后放，放早了香味全跑'}},
+      {text:'下茄子翻炒均匀，收汁出锅。',timer:90,tip:'✅ 蒸制法更省油：蒸8分钟再红烧'}}
     ],
     related:['茄子','大蒜'],
     beginnerTips:[
@@ -1048,10 +1044,10 @@ const RECIPES = [
       {name:'生抽',amt:'1勺',cat:'调味'},{name:'盐',amt:'适量',cat:'调味'}
     ],
     steps:[
-      {text:'豆角掰段，洗净沥干。',timer:0},
-      {text:'热油中小火煸豆角至表皮起皱微焦，盛出。',timer:600},
-      {text:'爆香肉末、干辣椒、蒜末。',timer:60},
-      {text:'下豆角，加生抽盐调味，炒匀出锅。',timer:60}
+      {text:'豆角掰段，洗净沥干。',timer:0,tip:'🔬 生豆角含皂苷和植物血凝素，必须彻底加热'}},
+      {text:'热油中小火煸豆角至表皮起皱微焦，盛出。',timer:600,tip:'⚠️ 火太大外糊里生，中小火慢慢煸'}},
+      {text:'爆香肉末、干辣椒、蒜末。',timer:60,tip:'✅ 彻底沥干水，带水下锅溅油且变成煮豆角'}},
+      {text:'下豆角，加生抽盐调味，炒匀出锅。',timer:60,tip:'✅ 煸到表皮起皱微焦（虎皮状）才熟透干香'}}
     ],
     related:['大蒜','猪肉末'],
     beginnerTips:[
@@ -1074,10 +1070,10 @@ const RECIPES = [
       {name:'生抽',amt:'2勺',cat:'调味'},{name:'香油',amt:'几滴',cat:'调味'}
     ],
     steps:[
-      {text:'虾剪须挑虾线，洗净。',timer:0},
-      {text:'水开加姜片、葱段、料酒，下虾煮2分钟变红捞出。',timer:120},
-      {text:'过冰水让虾肉更Q弹。',timer:60},
-      {text:'蘸生抽香油碟吃。',timer:0}
+      {text:'虾剪须挑虾线，洗净。',timer:0,tip:'🔬 过冰水热胀冷缩，虾肉急剧收缩口感Q弹'}},
+      {text:'水开加姜片、葱段、料酒，下虾煮2分钟变红捞出。',timer:120,tip:'⚠️ 煮超2分钟肉就老，变红弯曲就捞'}},
+      {text:'过冰水让虾肉更Q弹。',timer:60,tip:'✅ 牙签从虾背第二节挑虾线，不去掉有泥沙腥味'}},
+      {text:'蘸生抽香油碟吃。',timer:0,tip:'✅ 水开加姜葱料酒再下虾，去腥增香'}}
     ],
     related:['鲜虾','姜','大葱'],
     beginnerTips:[
@@ -1101,10 +1097,10 @@ const RECIPES = [
       {name:'糖',amt:'半勺',cat:'调味'},{name:'醋',amt:'半勺',cat:'调味'}
     ],
     steps:[
-      {text:'带鱼切段，用厨房纸吸干水分。',timer:0},
-      {text:'热油下锅煎至两面金黄。',timer:300},
-      {text:'爆香姜蒜，加生抽老抽料酒糖醋和少许水。',timer:60},
-      {text:'大火烧开转小火焖5分钟，收汁出锅。',timer:300}
+      {text:'带鱼切段，用厨房纸吸干水分。',timer:0,tip:'🔬 吸干水分防溅油，鱼皮不破'}},
+      {text:'热油下锅煎至两面金黄。',timer:300,tip:'⚠️ 频繁翻动鱼肉散碎，煎2分钟定型再翻'}},
+      {text:'爆香姜蒜，加生抽老抽料酒糖醋和少许水。',timer:60,tip:'✅ 银脂是好东西富含不饱和脂肪酸，不用刮'}},
+      {text:'大火烧开转小火焖5分钟，收汁出锅。',timer:300,tip:'✅ 加半勺醋去腥，醋酸挥发只留香味'}}
     ],
     related:['带鱼','姜','大蒜'],
     beginnerTips:[
@@ -1127,10 +1123,10 @@ const RECIPES = [
       {name:'盐',amt:'适量',cat:'调味'}
     ],
     steps:[
-      {text:'青菜洗净切段，香菇切片。',timer:0},
-      {text:'爆香蒜末，下香菇炒出香味。',timer:60},
-      {text:'下青菜大火快炒至变软。',timer:90},
-      {text:'加蚝油和盐调味，炒匀出锅。',timer:30}
+      {text:'青菜洗净切段，香菇切片。',timer:0,tip:'🔬 香菇香味物质需油炒释放，先炒香菇再下青菜'}},
+      {text:'爆香蒜末，下香菇炒出香味。',timer:60,tip:'⚠️ 没沥干水或小火慢炒会出一盘水'}},
+      {text:'下青菜大火快炒至变软。',timer:90,tip:'✅ 干香菇鸟苷酸含量更高，泡发水当高汤用'}},
+      {text:'加蚝油和盐调味，炒匀出锅。',timer:30,tip:'✅ 全程大火快炒不超过2分钟'}}
     ],
     related:['香菇','大蒜'],
     beginnerTips:[
@@ -1153,10 +1149,10 @@ const RECIPES = [
       {name:'盐',amt:'适量',cat:'调味'},{name:'料酒',amt:'1勺',cat:'调味'}
     ],
     steps:[
-      {text:'排骨冷水下锅，加姜片料酒焯水。',timer:300},
-      {text:'玉米切段，胡萝卜切滚刀块。',timer:0},
-      {text:'排骨加热水、姜片，大火烧开转小火炖30分钟。',timer:1800},
-      {text:'下玉米胡萝卜再炖20分钟。',timer:1200},
+      {text:'排骨冷水下锅，加姜片料酒焯水。',timer:300,tip:'🔬 小火微沸汤清味鲜，大火沸腾乳化变浑浊'}},
+      {text:'玉米切段，胡萝卜切滚刀块。',timer:0,tip:'⚠️ 排骨没焯水或没冲洗浮沫，腥味重'}},
+      {text:'排骨加热水、姜片，大火烧开转小火炖30分钟。',timer:1800,tip:'✅ 玉米须一起炖有淡淡甜味'}},
+      {text:'下玉米胡萝卜再炖20分钟。',timer:1200,tip:'✅ 盐最后10分钟放，放早了肉质收紧'}},
       {text:'加盐调味，撒葱花出锅。',timer:0}
     ],
     related:['排骨','玉米','胡萝卜'],
@@ -1181,9 +1177,9 @@ const RECIPES = [
       {name:'小米辣',amt:'1个',cat:'调味'}
     ],
     steps:[
-      {text:'黄瓜拍裂切段，加盐腌10分钟杀水。',timer:600},
-      {text:'倒掉腌出的水，加蒜末、小米辣。',timer:0},
-      {text:'加生抽、醋、糖、香油拌匀。',timer:0}
+      {text:'黄瓜拍裂切段，加盐腌10分钟杀水。',timer:600,tip:'🔬 拍黄瓜表面坑洼挂住料汁，刀切光滑挂不住'}},
+      {text:'倒掉腌出的水，加蒜末、小米辣。',timer:0,tip:'⚠️ 没腌直接拌会出一盘水，盐腌10分钟倒掉水再拌'}},
+      {text:'加生抽、醋、糖、香油拌匀。',timer:0,tip:'✅ 料汁吃之前再淋，拌早了越泡越软'}}
     ],
     related:['黄瓜','大蒜','小米辣'],
     beginnerTips:[
@@ -1207,10 +1203,10 @@ const RECIPES = [
       {name:'料酒',amt:'1勺',cat:'调味'}
     ],
     steps:[
-      {text:'五花肉冷水下锅，加姜片料酒煮20分钟，捞出晾凉切薄片。',timer:1200},
-      {text:'青椒切块，蒜苗切段。',timer:0},
-      {text:'少油下五花肉煸炒至出油微卷。',timer:180},
-      {text:'下豆瓣酱豆豉炒出红油，加青椒翻炒。',timer:120},
+      {text:'五花肉冷水下锅，加姜片料酒煮20分钟，捞出晾凉切薄片。',timer:1200,tip:'✅ 夏天冷藏半小时，脆度翻倍'}},
+      {text:'青椒切块，蒜苗切段。',timer:0,tip:'⚠️ 肉没晾凉切不薄，煸炒不够油脂没出来'}},
+      {text:'少油下五花肉煸炒至出油微卷。',timer:180,tip:'✅ 煸到微微卷曲边缘焦黄（灯盏窝），肥而不腻'}},
+      {text:'下豆瓣酱豆豉炒出红油，加青椒翻炒。',timer:120,tip:'✅ 豆瓣酱剁碎炒出红油，蒜苗最后放'}},
       {text:'加蒜苗炒匀出锅。',timer:60}
     ],
     related:['五花肉','青椒','姜'],
@@ -1355,8 +1351,7 @@ function init(){
   const obs=new IntersectionObserver(es=>{
     es.forEach(e=>{if(e.isIntersecting){navs.forEach(n=>n.classList.toggle('active',n.dataset.nav===e.target.id))}})
   },{rootMargin:'-40% 0px -55% 0px'});
-  ['home','cook','pick','season'].forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
-}
+  ['home','cook','pick','season'].forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});}
 function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
 
 /* ================== 菜谱板块 ================== */
@@ -1413,17 +1408,11 @@ function openRecipe(id){
       <div class="steps">${r.steps.map((s,i)=>`
         <div class="step"><div class="step-num">${i+1}</div>
           <div><div class="step-text">${s.text}</div>
+          ${s.tip?`<div class="step-tip">${s.tip}</div>`:''}
           ${s.timer?`<div class="step-timer">⏱ ${s.timer<60?s.timer+'秒':Math.floor(s.timer/60)+'分'+(s.timer%60?s.timer%60+'秒':'')}</div>`:''}</div>
         </div>`).join('')}</div>
     </div>
-    ${r.beginnerTips?`
-    <div class="detail-section"><h3>🎓 新手教程</h3>
-      <div class="beginner-tips">${r.beginnerTips.map(t=>`
-        <div class="tip-card tip-${t.type}">
-          <div class="tip-header">${t.type==='principle'?'🔬':t.type==='mistake'?'⚠️':'✅'} ${t.title}</div>
-          <div class="tip-content">${t.content}</div>
-        </div>`).join('')}</div>
-    </div>`:''}
+
     <div class="detail-section"><h3>💛 美味记忆与双人打分</h3>
       <div class="dual-rating">
         <div class="rater"><div class="rater-name">🐰 小兔打分</div>
