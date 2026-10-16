@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>好好做饭 · 小兔和我的厨房</title>
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+/* ============ 全局暖色调治愈系变量 ============ */
+:root{
+  --cream:#FFF8EE;
+  --cream-2:#FFF1DC;
+  --warm-yellow:#FFD88A;
+  --warm-orange:#F4A261;
+  --terracotta:#E76F51;
+  --coral:#E8846B;
+  --sage:#A8B89A;
+  --sage-deep:#7C9473;
+  --brown:#4A3F35;
+  --brown-soft:#7A6A5C;
+  --rose:#E8A0A0;
+  --shadow:0 8px 28px rgba(180,130,80,.15);
+  --shadow-sm:0 3px 12px rgba(180,130,80,.12);
+  --radius:22px;
+  --hand-font:'ZCOOL KuaiLe','Ma Shan Zheng',cursive;
+  --body-font:'ZCOOL XiaoWei','PingFang SC','Microsoft YaHei',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body-font);
+  background:var(--cream);
+  color:var(--brown);
+  line-height:1.7;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(255,216,138,.35),transparent 35%),
+    radial-gradient(circle at 88% 12%,rgba(232,164,160,.22),transparent 32%),
+    radial-gradient(circle at 75% 88%,rgba(168,184,154,.2),transparent 38%);
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* ============ 顶部导航 ============ */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,248,238,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(244,162,97,.2);
+  padding:14px 20px;
+}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--hand-font);font-size:24px;color:var(--terracotta);white-space:nowrap}
+.brand .heart{animation:beat 1.6s ease-in-out infinite;display:inline-block}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap}
+.nav-links a{
+  padding:8px 16px;border-radius:30px;font-size:15px;
+  transition:all .25s;color:var(--brown-soft);
+}
+.nav-links a:hover,.nav-links a.active{background:var(--warm-yellow);color:var(--brown);box-shadow:var(--shadow-sm)}
+.cart-btn{
+  position:relative;padding:8px 16px;border-radius:30px;background:var(--sage);color:#fff;font-size:15px;
+  transition:all .25s;
+}
+.cart-btn:hover{background:var(--sage-deep);transform:translateY(-1px)}
+.cart-badge{
+  position:absolute;top:-4px;right:-4px;background:var(--terracotta);color:#fff;
+  border-radius:50%;width:20px;height:20px;font-size:12px;display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--cream);
+}
+
+/* ============ 首页 Hero ============ */
+.hero{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;padding:60px 24px 40px;
+  text-align:center;
+}
+.hero h1{
+  font-family:var(--hand-font);font-size:clamp(42px,7vw,72px);
+  color:var(--terracotta);letter-spacing:2px;
+  text-shadow:2px 3px 0 rgba(255,216,138,.5);
+}
+.hero .sub{margin-top:14px;font-size:clamp(16px,2.5vw,20px);color:var(--brown-soft)}
+.hero .couple{margin-top:30px;font-size:64px;letter-spacing:8px}
+.hero .couple span{display:inline-block}
+.hero .couple .rabbit{animation:hop 2.2s ease-in-out infinite}
+.hero .couple .me{animation:hop 2.2s ease-in-out infinite .4s}
+@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero .slogan{margin-top:18px;font-family:var(--hand-font);font-size:22px;color:var(--coral)}
+
+.hero-cards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;margin-top:48px;
+}
+.hero-card{
+  background:#fff;border-radius:var(--radius);padding:32px 26px;
+  box-shadow:var(--shadow);text-align:left;cursor:pointer;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);
+  border:2px solid transparent;position:relative;overflow:hidden;
+}
+.hero-card::after{
+  content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,216,138,.15),transparent 60%);
+  opacity:0;transition:opacity .3s;
+}
+.hero-card:hover{transform:translateY(-6px);border-color:var(--warm-yellow)}
+.hero-card:hover::after{opacity:1}
+.hero-card .icon{font-size:48px;margin-bottom:14px}
+.hero-card h3{font-family:var(--hand-font);font-size:26px;color:var(--terracotta);margin-bottom:8px}
+.hero-card p{color:var(--brown-soft);font-size:15px;line-height:1.7}
+
+/* ============ 通用区块 ============ */
+section.block{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:40px 24px}
+.section-title{
+  font-family:var(--hand-font);font-size:36px;color:var(--terracotta);
+  display:flex;align-items:center;gap:12px;margin-bottom:8px;
+}
+.section-desc{color:var(--brown-soft);margin-bottom:28px;font-size:15px}
+
+/* ============ 菜谱卡片 ============ */
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.chip{
+  padding:9px 18px;border-radius:20px;background:#fff;color:var(--brown-soft);
+  font-size:14px;box-shadow:var(--shadow-sm);transition:all .2s;border:1.5px solid transparent;
+  min-height:42px;display:inline-flex;align-items:center;
+}
+.chip:hover{border-color:var(--warm-yellow)}
+.chip.active{background:var(--warm-orange);color:#fff;border-color:var(--warm-orange)}
+.recipe-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.recipe-card{
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);transition:all .3s;cursor:pointer;
+  border:2px solid transparent;
+}
+.recipe-card:hover{transform:translateY(-5px);border-color:var(--warm-yellow)}
+.recipe-cover{
+  height:130px;background:linear-gradient(135deg,var(--cream-2),var(--warm-yellow));
+  display:flex;align-items:center;justify-content:center;font-size:58px;position:relative;
+}
+.verified-badge{
+  position:absolute;top:10px;left:10px;
+  background:var(--sage);color:#fff;font-size:13px;padding:4px 10px;border-radius:12px;
+  display:flex;align-items:center;gap:4px;
+}
+.recipe-body{padding:16px}
+.recipe-title{font-family:var(--hand-font);font-size:20px;color:var(--brown);margin-bottom:6px}
+.recipe-meta{display:flex;gap:12px;font-size:14px;color:var(--brown-soft);margin-bottom:8px}
+.recipe-meta span{display:flex;align-items:center;gap:3px}
+.recipe-source{font-size:13px;color:var(--coral);font-style:italic}
+.stars{color:var(--warm-orange);font-size:14px;margin-top:6px}
+
+/* ============ 弹窗通用 ============ */
+.modal-mask{
+  position:fixed;inset:0;background:rgba(74,63,53,.45);backdrop-filter:blur(4px);
+  z-index:100;display:none;align-items:flex-end;justify-content:center;
+  animation:fade .25s ease;
+}
+.modal-mask.show{display:flex}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal{
+  background:var(--cream);width:100%;max-width:760px;max-height:92vh;
+  border-radius:28px 28px 0 0;overflow:hidden;
+  display:flex;flex-direction:column;animation:slideUp .35s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-header{
+  padding:20px 24px;display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(135deg,var(--warm-yellow),var(--coral));
+  color:#fff;position:relative;
+}
+.modal-header h2{font-family:var(--hand-font);font-size:26px}
+.modal-close{font-size:28px;line-height:1;color:#fff;opacity:.85;transition:.2s}
+.modal-close:hover{opacity:1;transform:rotate(90deg)}
+.modal-body{padding:24px;overflow-y:auto;flex:1}
+
+/* ============ 菜谱详情 ============ */
+.detail-cover{
+  height:160px;background:linear-gradient(135deg,var(--cream-2),var(--warm-yellow));
+  border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:80px;
+  margin-bottom:18px;position:relative;
+}
+.detail-tags{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.tag{background:var(--cream-2);color:var(--terracotta);padding:4px 12px;border-radius:12px;font-size:14px}
+.source-box{
+  background:#fff;border-left:4px solid var(--sage);padding:12px 16px;border-radius:10px;
+  margin:14px 0;font-size:14px;color:var(--brown-soft);
+}
+.detail-section{margin-top:22px}
+.detail-section h3{font-family:var(--hand-font);font-size:22px;color:var(--terracotta);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.ingredient-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.ing-item{
+  background:#fff;padding:10px 14px;border-radius:12px;display:flex;justify-content:space-between;
+  align-items:center;box-shadow:var(--shadow-sm);font-size:14px;
+}
+.ing-item .name{font-weight:bold;color:var(--brown)}
+.ing-item .amt{color:var(--brown-soft);font-size:14px}
+.steps{counter-reset:step}
+.step{
+  background:#fff;padding:16px 18px;border-radius:14px;margin-bottom:12px;
+  box-shadow:var(--shadow-sm);display:flex;gap:14px;align-items:flex-start;position:relative;
+}
+.step-num{
+  flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--warm-orange);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:var(--hand-font);font-size:18px;
+}
+.step-text{flex:1;font-size:15px;line-height:1.7}
+.step-timer{
+  margin-top:8px;display:inline-flex;align-items:center;gap:6px;
+  background:var(--cream-2);color:var(--terracotta);padding:4px 12px;border-radius:10px;font-size:14px;
+}
+.detail-actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{
+  padding:12px 22px;border-radius:30px;font-size:15px;font-weight:bold;transition:all .25s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary{background:var(--terracotta);color:#fff}
+.btn-primary:hover{background:#d45d3f;transform:translateY(-2px)}
+.btn-secondary{background:var(--sage);color:#fff}
+.btn-secondary:hover{background:var(--sage-deep)}
+.btn-warm{background:var(--warm-yellow);color:var(--brown)}
+.btn-warm:hover{background:#ffcc66}
+.btn-ghost{background:#fff;color:var(--brown);box-shadow:var(--shadow-sm)}
+.btn-ghost:hover{background:var(--cream-2)}
+
+/* ============ 计时烹饪沉浸视图 ============ */
+.cooking-mode{
+  position:fixed;inset:0;background:var(--brown);z-index:200;
+  display:none;flex-direction:column;color:var(--cream);padding:20px;
+}
+.cooking-mode.show{display:flex}
+.cooking-top{display:flex;justify-content:space-between;align-items:center;padding:10px 4px}
+.cooking-title{font-family:var(--hand-font);font-size:28px;color:var(--warm-yellow)}
+.cooking-exit{color:var(--cream);font-size:22px;padding:8px 16px;border:1.5px solid rgba(255,255,255,.3);border-radius:20px}
+.cooking-main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:24px;padding:20px}
+.cooking-step-text{font-size:clamp(22px,5vw,36px);line-height:1.5;max-width:700px;font-family:var(--hand-font);letter-spacing:1px}
+.cooking-timer{
+  font-family:var(--hand-font);font-size:clamp(80px,18vw,180px);
+  color:var(--warm-yellow);line-height:1;
+  text-shadow:0 0 40px rgba(255,216,138,.4);
+}
+.cooking-timer.done{color:var(--coral);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.cooking-controls{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.cooking-controls .btn{font-size:18px;padding:14px 28px}
+.cooking-progress{width:100%;max-width:500px;height:8px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
+.cooking-progress-bar{height:100%;background:linear-gradient(90deg,var(--warm-yellow),var(--coral));border-radius:4px;transition:width .3s}
+.cooking-step-indicator{font-size:18px;color:rgba(255,248,238,.6)}
+
+/* ============ 食材挑选 ============ */
+.ingredient-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.ing-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+.ing-card{
+  background:#fff;border-radius:18px;padding:18px 14px;text-align:center;
+  box-shadow:var(--shadow-sm);cursor:pointer;transition:all .3s;border:2px solid transparent;
+}
+.ing-card:hover{transform:translateY(-4px);border-color:var(--sage)}
+.ing-emoji{font-size:42px;margin-bottom:8px}
+.ing-name{font-family:var(--hand-font);font-size:18px;color:var(--brown)}
+.ing-cat{font-size:13px;color:var(--brown-soft);margin-top:2px}
+.season-dots{margin-top:8px;font-size:11px;color:var(--sage-deep)}
+
+/* 食材详情 */
+.look-touch-smell{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:16px 0}
+.lts-card{background:#fff;padding:16px;border-radius:16px;box-shadow:var(--shadow-sm)}
+.lts-card .lts-icon{font-size:28px;margin-bottom:6px}
+.lts-card .lts-title{font-family:var(--hand-font);font-size:18px;color:var(--terracotta);margin-bottom:6px}
+.lts-card .lts-text{font-size:14px;color:var(--brown-soft);line-height:1.6}
+
+/* 时令历 */
+.seasonal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.month-card{
+  background:#fff;border-radius:16px;padding:14px;box-shadow:var(--shadow-sm);
+  border-top:4px solid var(--warm-yellow);
+}
+.month-card .m-name{font-family:var(--hand-font);font-size:18px;color:var(--terracotta);margin-bottom:8px}
+.month-card .m-items{font-size:14px;color:var(--brown-soft);line-height:1.8}
+.month-card .m-items span{display:inline-block;margin-right:4px}
+
+/* ============ 采购清单 ============ */
+.shop-item{
+  display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fff;border-radius:14px;
+  margin-bottom:8px;box-shadow:var(--shadow-sm);transition:all .2s;
+}
+.shop-item.done{opacity:.5}
+.shop-item.done .shop-name{text-decoration:line-through}
+.shop-check{
+  width:24px;height:24px;border-radius:50%;border:2.5px solid var(--sage);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;
+}
+.shop-check.checked{background:var(--sage);color:#fff}
+.shop-name{flex:1;font-size:15px}
+.shop-amount{color:var(--brown-soft);font-size:14px}
+.shop-remove{color:var(--rose);font-size:18px;padding:4px 8px}
+.shop-empty{text-align:center;padding:40px;color:var(--brown-soft)}
+
+/* 极简采购模式 */
+.minimal-shop{
+  position:fixed;inset:0;background:var(--cream);z-index:150;display:none;flex-direction:column;
+}
+.minimal-shop.show{display:flex}
+.minimal-header{padding:20px;text-align:center;background:var(--warm-yellow)}
+.minimal-header h2{font-family:var(--hand-font);font-size:32px;color:var(--brown)}
+.minimal-body{flex:1;overflow-y:auto;padding:20px}
+.minimal-item{
+  display:flex;align-items:center;gap:16px;padding:20px 16px;border-bottom:1px solid rgba(0,0,0,.06);
+}
+.minimal-check{
+  width:36px;height:36px;border-radius:50%;border:3px solid var(--sage);
+  display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;
+}
+.minimal-check.checked{background:var(--sage);color:#fff}
+.minimal-name{font-size:24px;font-family:var(--hand-font);color:var(--brown)}
+.minimal-item.done .minimal-name{text-decoration:line-through;opacity:.5}
+.minimal-footer{padding:16px;text-align:center}
+
+/* ============ 记忆打分 ============ */
+.memory-box{background:#fff;border-radius:16px;padding:18px;margin-top:14px;box-shadow:var(--shadow-sm)}
+.memory-box textarea{
+  width:100%;border:1.5px dashed var(--warm-yellow);border-radius:12px;padding:12px;
+  font-family:inherit;font-size:14px;resize:vertical;min-height:70px;background:var(--cream);
+}
+.memory-box textarea:focus{outline:none;border-color:var(--warm-orange)}
+.rating-stars{font-size:28px;color:var(--warm-yellow);cursor:pointer;user-select:none;margin:8px 0}
+.rating-stars span{transition:transform .15s;display:inline-block}
+.rating-stars span:hover{transform:scale(1.2)}
+.rating-label{font-size:14px;color:var(--brown-soft)}
+
+/* ============ 首页补充特色 ============ */
+.features{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;margin-top:30px;
+}
+.feature{
+  background:#fff;border-radius:18px;padding:22px;text-align:center;box-shadow:var(--shadow-sm);
+  transition:all .3s;
+}
+.feature:hover{transform:translateY(-4px)}
+.feature .f-icon{font-size:38px;margin-bottom:10px}
+.feature h4{font-family:var(--hand-font);font-size:18px;color:var(--terracotta);margin-bottom:6px}
+.feature p{font-size:14px;color:var(--brown-soft);line-height:1.6}
+
+/* ============ 浪漫彩蛋 ============ */
+.easter-egg{
+  text-align:center;padding:50px 20px;color:var(--brown-soft);font-size:14px;
+}
+.easter-egg .heart-row{font-size:28px;margin:12px 0;letter-spacing:6px}
+
+/* 双人打分 */
+.dual-rating{display:flex;gap:24px;margin:10px 0;flex-wrap:wrap}
+.rater{flex:1;min-width:140px;background:#fff;padding:14px;border-radius:14px;text-align:center;box-shadow:var(--shadow-sm)}
+.rater-name{font-family:var(--hand-font);font-size:18px;color:var(--terracotta);margin-bottom:6px}
+
+/* 收藏按钮 */
+.fav-btn{position:absolute;top:10px;right:10px;font-size:22px;opacity:.5;transition:.2s}
+.fav-btn.active{opacity:1;animation:pop .3s}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.4)}100%{transform:scale(1)}}
+
+/* 滚动条美化 */
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-thumb{background:var(--warm-yellow);border-radius:4px}
+::-webkit-scrollbar-track{background:transparent}
+
+/* 响应式 */
+@media(max-width:600px){
+  .nav{padding:8px 12px}
+  .nav-inner{flex-wrap:wrap;gap:8px 10px}
+  .brand{font-size:19px;gap:7px}
+  .nav-links{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;gap:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{padding:9px 14px;font-size:14px;min-height:40px;display:inline-flex;align-items:center;white-space:nowrap}
+  .cart-btn{padding:8px 13px;font-size:14px;min-height:40px}
+  .section-title{font-size:28px}
+  .modal-body{padding:16px}
+  .hero-cards{gap:16px}
+  .filter-bar{gap:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- 导航 -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">🍳 好好做饭 <span class="heart">💛</span></div>
+    <div class="nav-links">
+      <a href="#home" data-nav="home" class="active">首页</a>
+      <a href="#cook" data-nav="cook">好好做菜</a>
+      <a href="#pick" data-nav="pick">好好挑菜</a>
+      <a href="#season" data-nav="season">时令历</a>
+    </div>
+    <button class="cart-btn" onclick="openShop()">🛒 清单 <span class="cart-badge" id="cartBadge">0</span></button>
+  </div>
+</nav>
+
+<!-- 首页 Hero -->
+<section class="hero" id="home">
+  <h1>好 好 做 饭</h1>
+  <div class="sub">小兔和我 · 把日子过成热气腾腾的模样</div>
+  <div class="couple"><span class="rabbit">🐰</span>💕<span class="me">🧑‍🍳</span></div>
+  <div class="slogan">「 一屋两人，三餐四季，好好吃饭，慢慢相爱 」</div>
+
+  <div class="hero-cards">
+    <div class="hero-card" onclick="go('cook')">
+      <div class="icon">👨‍🍳</div>
+      <h3>好好做菜</h3>
+      <p>每一道都实测过、绝不踩雷的私房菜谱。带计时烹饪模式，把手机往支架上一放，安心下锅。</p>
+    </div>
+    <div class="hero-card" onclick="go('pick')">
+      <div class="icon">🥬</div>
+      <h3>好好挑菜</h3>
+      <p>看、摸、闻三步法，把菜市场变成探索乐园。时令食材一手掌握，再也不怕被摊主忽悠。</p>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="feature"><div class="f-icon">✅</div><h4>验真菜谱</h4><p>高分配方·大厨亲传·家传秘方</p></div>
+    <div class="feature"><div class="f-icon">⏱️</div><h4>沉浸烹饪</h4><p>大字倒计时，下菜顺序提醒</p></div>
+    <div class="feature"><div class="f-icon">🔗</div><h4>菜↔材联动</h4><p>菜谱生成清单，食材反查菜谱</p></div>
+    <div class="feature"><div class="f-icon">💛</div><h4>美味记忆</h4><p>记录每次的感动与双人打分</p></div>
+  </div>
+</section>
+
+<!-- 好好做菜 -->
+<section class="block" id="cook">
+  <h2 class="section-title">🍲 好好做菜 <span style="font-size:16px;color:var(--brown-soft);font-weight:normal">— 私房验真菜谱库</span></h2>
+  <p class="section-desc">每一道都标注来源与"已验证"标志，实测通过才上架。点进去可启动厨房沉浸模式。</p>
+  <div class="filter-bar" id="recipeFilters"></div>
+  <div class="recipe-grid" id="recipeGrid"></div>
+</section>
+
+<!-- 好好挑菜 -->
+<section class="block" id="pick">
+  <h2 class="section-title">🥕 好好挑菜 <span style="font-size:16px;color:var(--brown-soft);font-weight:normal">— 食材挑选与灵感指南</span></h2>
+  <p class="section-desc">看、摸、闻三步法 + 时令推荐。点食材可查看挑选秘籍，并反查能做的验真菜谱。</p>
+  <div class="ingredient-tabs" id="ingTabs"></div>
+  <div class="ing-grid" id="ingGrid"></div>
+</section>
+
+<!-- 时令历 -->
+<section class="block" id="season">
+  <h2 class="section-title">📅 时令历 <span style="font-size:16px;color:var(--brown-soft);font-weight:normal">— 几月吃什么</span></h2>
+  <p class="section-desc">顺时而食，当季最肥美。点击食材可跳转查看挑选方法与菜谱。</p>
+  <div class="seasonal-grid" id="seasonalGrid"></div>
+</section>
+
+<!-- 浪漫彩蛋 -->
+<div class="easter-egg">
+  <div class="heart-row">🍳 🥕 🍅 🥩 🐟 🧄 🌶️ 🧅</div>
+  <div>谨以此站，献给愿意和我一起逛菜市场、一起等一锅汤咕嘟咕嘟的小兔。</div>
+  <div style="margin-top:8px;opacity:.6">—— 好好做饭，就是好好爱你 ——</div>
+</div>
+
+<!-- 菜谱详情弹窗 -->
+<div class="modal-mask" id="recipeModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">菜谱详情</h2>
+      <button class="modal-close" onclick="closeModal('recipeModal')">✕</button>
+    </div>
+    <div class="modal-body" id="recipeDetailBody"></div>
+  </div>
+</div>
+
+<!-- 食材详情弹窗 -->
+<div class="modal-mask" id="ingModal">
+  <div class="modal">
+    <div class="modal-header" style="background:linear-gradient(135deg,var(--sage),var(--sage-deep))">
+      <h2 id="ingModalTitle">食材详情</h2>
+      <button class="modal-close" onclick="closeModal('ingModal')">✕</button>
+    </div>
+    <div class="modal-body" id="ingDetailBody"></div>
+  </div>
+</div>
+
+<!-- 采购清单弹窗 -->
+<div class="modal-mask" id="shopModal">
+  <div class="modal">
+    <div class="modal-header" style="background:linear-gradient(135deg,var(--sage),var(--terracotta))">
+      <h2>🛒 今日采购清单</h2>
+      <button class="modal-close" onclick="closeModal('shopModal')">✕</button>
+    </div>
+    <div class="modal-body" id="shopBody"></div>
+  </div>
+</div>
+
+<!-- 计时烹饪沉浸视图 -->
+<div class="cooking-mode" id="cookingMode">
+  <div class="cooking-top">
+    <button class="cooking-exit" onclick="exitCooking()">← 退出烹饪</button>
+    <div class="cooking-title" id="cookingTitle">烹饪中</div>
+    <div style="width:80px"></div>
+  </div>
+  <div class="cooking-main">
+    <div class="cooking-step-indicator" id="cookingIndicator">第 1 步 / 共 1 步</div>
+    <div class="cooking-step-text" id="cookingText">准备食材</div>
+    <div class="cooking-timer" id="cookingTimer">--:--</div>
+    <div class="cooking-progress"><div class="cooking-progress-bar" id="cookingProgress" style="width:0%"></div></div>
+    <div class="cooking-controls">
+      <button class="btn btn-warm" onclick="prevStep()">⬅ 上一步</button>
+      <button class="btn btn-primary" id="timerToggle" onclick="toggleTimer()">▶ 开始计时</button>
+      <button class="btn btn-warm" onclick="nextStep()">下一步 ➡</button>
+    </div>
+  </div>
+</div>
+
+<!-- 极简采购模式 -->
+<div class="minimal-shop" id="minimalShop">
+  <div class="minimal-header">
+    <h2>🛒 极简采购模式</h2>
+    <button class="btn btn-ghost" style="margin-top:10px" onclick="closeMinimal()">退出</button>
+  </div>
+  <div class="minimal-body" id="minimalBody"></div>
+  <div class="minimal-footer">
+    <div style="font-family:var(--hand-font);font-size:18px;color:var(--brown-soft)" id="minimalCount">0 / 0</div>
+  </div>
+</div>
+
+<script>
+/* ================== 数据 ================== */
+const RECIPES = [
+  {
+    id:'r1', name:'番茄炖牛腩', emoji:'🍲',
+    desc:'酥烂入味、汤汁浓郁，拌饭一绝。',
+    source:'《下厨房》9.2分高分配方 + 小兔亲测调整',
+    difficulty:'中等', time:90, servings:'2人份',
+    tags:['硬菜','下饭','炖菜'],
+    rating:5,
+    ingredients:[
+      {name:'牛腩',amt:'500g',cat:'肉类'},{name:'番茄',amt:'3个',cat:'蔬菜'},
+      {name:'洋葱',amt:'1个',cat:'蔬菜'},{name:'姜',amt:'3片',cat:'调味'},
+      {name:'生抽',amt:'2勺',cat:'调味'},{name:'冰糖',amt:'1小把',cat:'调味'},
+      {name:'料酒',amt:'1勺',cat:'调味'}
+    ],
+    steps:[
+      {text:'牛腩切3cm见方块，冷水下锅加姜片料酒焯水，撇去浮沫捞出洗净。',timer:0},
+      {text:'番茄顶部划十字，开水烫后去皮切块；洋葱切块。',timer:0},
+      {text:'锅中少许油，下冰糖小火炒至焦糖色，倒入牛腩翻炒上色。',timer:180},
+      {text:'加入洋葱、番茄翻炒出汁，加生抽、料酒、没过食材的热水。',timer:0},
+      {text:'大火烧开后转小火慢炖，让牛腩酥烂入味。',timer:3600},
+      {text:'开盖大火收汁至浓稠，撒葱花出锅。',timer:300}
+    ],
+    related:['牛腩','番茄','洋葱']
+  },
+  {
+    id:'r2', name:'可乐鸡翅', emoji:'🍗',
+    desc:'甜咸交织、色泽红亮，小朋友和小兔都爱。',
+    source:'家传秘方 · 妈妈的味道',
+    difficulty:'简单', time:30, servings:'2人份',
+    tags:['家常菜','快手','甜口'],
+    rating:5,
+    ingredients:[
+      {name:'鸡翅中',amt:'8个',cat:'肉类'},{name:'可乐',amt:'1罐',cat:'调味'},
+      {name:'生抽',amt:'2勺',cat:'调味'},{name:'姜',amt:'3片',cat:'调味'},
+      {name:'料酒',amt:'1勺',cat:'调味'},{name:'葱段',amt:'适量',cat:'调味'}
+    ],
+    steps:[
+      {text:'鸡翅两面划刀，冷水下锅加料酒姜片焯水1分钟捞出。',timer:60},
+      {text:'少油煎鸡翅至两面金黄。',timer:300},
+      {text:'倒入可乐没过鸡翅，加生抽、姜片、葱段。',timer:0},
+      {text:'大火烧开转中小火，煮至汤汁浓稠裹满鸡翅。',timer:900},
+      {text:'大火收汁亮油，出锅装盘。',timer:120}
+    ],
+    related:['鸡翅','可乐']
+  },
+  {
+    id:'r3', name:'清蒸鲈鱼', emoji:'🐟',
+    desc:'鲜嫩弹牙，原汁原味，最考验食材新鲜度。',
+    source:'粤菜大厨经典做法 · 顺德清蒸',
+    difficulty:'中等', time:20, servings:'2人份',
+    tags:['海鲜','清淡','宴客'],
+    rating:4,
+    ingredients:[
+      {name:'鲈鱼',amt:'1条约600g',cat:'海鲜'},{name:'葱',amt:'3根',cat:'调味'},
+      {name:'姜',amt:'1块',cat:'调味'},{name:'蒸鱼豉油',amt:'2勺',cat:'调味'},
+      {name:'料酒',amt:'1勺',cat:'调味'}
+    ],
+    steps:[
+      {text:'鲈鱼处理干净，鱼身两面划刀，抹料酒和盐腌10分钟。',timer:600},
+      {text:'盘底铺葱段姜片，放上鲈鱼，水开后上锅蒸。',timer:480},
+      {text:'蒸好倒掉腥水，铺上葱姜丝。',timer:0},
+      {text:'淋蒸鱼豉油，热油浇在葱姜丝上激香。',timer:30}
+    ],
+    related:['鲈鱼']
+  },
+  {
+    id:'r4', name:'蒜蓉粉丝蒸虾', emoji:'🦐',
+    desc:'蒜香浓郁，粉丝吸满鲜汁，一口满足。',
+    source:'《下厨房》收藏破万配方',
+    difficulty:'简单', time:25, servings:'2人份',
+    tags:['海鲜','宴客','快手'],
+    rating:5,
+    ingredients:[
+      {name:'鲜虾',amt:'10只',cat:'海鲜'},{name:'粉丝',amt:'1把',cat:'主食'},
+      {name:'大蒜',amt:'1整头',cat:'调味'},{name:'生抽',amt:'1勺',cat:'调味'},
+      {name:'蚝油',amt:'1勺',cat:'调味'},{name:'小米辣',amt:'1个',cat:'调味'}
+    ],
+    steps:[
+      {text:'粉丝温水泡软铺盘底；虾开背去虾线摆在粉丝上。',timer:0},
+      {text:'大蒜剁蓉，一半炸金黄一半生蒜混合，加生抽蚝油调蒜蓉酱。',timer:120},
+      {text:'蒜蓉酱铺在虾背上，水开上锅蒸。',timer:360},
+      {text:'撒葱花小米辣，淋热油激香即可。',timer:30}
+    ],
+    related:['鲜虾','粉丝']
+  },
+  {
+    id:'r5', name:'红烧肉', emoji:'🥩',
+    desc:'肥而不腻、入口即化，浓油赤酱的上海味道。',
+    source:'本帮菜经典 · 小兔外婆亲传',
+    difficulty:'中等', time:80, servings:'2-3人份',
+    tags:['硬菜','经典','下饭'],
+    rating:5,
+    ingredients:[
+      {name:'五花肉',amt:'500g',cat:'肉类'},{name:'冰糖',amt:'30g',cat:'调味'},
+      {name:'生抽',amt:'2勺',cat:'调味'},{name:'老抽',amt:'半勺',cat:'调味'},
+      {name:'料酒',amt:'2勺',cat:'调味'},{name:'八角',amt:'2个',cat:'调味'},
+      {name:'姜葱',amt:'适量',cat:'调味'}
+    ],
+    steps:[
+      {text:'五花肉切2.5cm方块，冷水下锅焯水去血沫。',timer:300},
+      {text:'少许油下冰糖，小火炒糖色至琥珀色。',timer:180},
+      {text:'下五花肉翻炒裹糖色，加料酒、生抽、老抽、八角、姜葱。',timer:0},
+      {text:'加热水没过肉，大火烧开转小火慢炖。',timer:2700},
+      {text:'开盖大火收汁至浓稠油亮。',timer:300}
+    ],
+    related:['五花肉']
+  },
+  {
+    id:'r6', name:'蒜蓉西兰花', emoji:'🥦',
+    desc:'翠绿爽脆，蒜香十足，减脂期也能吃得满足。',
+    source:'家常快手 · 营养搭配',
+    difficulty:'简单', time:10, servings:'2人份',
+    tags:['素菜','快手','健康'],
+    rating:4,
+    ingredients:[
+      {name:'西兰花',amt:'1颗',cat:'蔬菜'},{name:'大蒜',amt:'4瓣',cat:'调味'},
+      {name:'盐',amt:'适量',cat:'调味'},{name:'蚝油',amt:'1勺',cat:'调味'}
+    ],
+    steps:[
+      {text:'西兰花切小朵，淡盐水泡10分钟去虫。',timer:600},
+      {text:'沸水加少许盐油，焯烫西兰花30秒捞出过凉水。',timer:30},
+      {text:'热油爆香蒜末，下西兰花翻炒，加盐蚝油炒匀出锅。',timer:60}
+    ],
+    related:['西兰花']
+  },
+  {
+    id:'r7', name:'蛋炒饭', emoji:'🍚',
+    desc:'粒粒分明、蛋香裹满每粒米，深夜治愈系。',
+    source:'黄金蛋炒饭 · 粒粒分明秘诀',
+    difficulty:'简单', time:15, servings:'1人份',
+    tags:['主食','快手','一人食'],
+    rating:5,
+    ingredients:[
+      {name:'隔夜米饭',amt:'1碗',cat:'主食'},{name:'鸡蛋',amt:'2个',cat:'蛋类'},
+      {name:'葱花',amt:'适量',cat:'调味'},{name:'盐',amt:'适量',cat:'调味'},
+      {name:'生抽',amt:'少许',cat:'调味'}
+    ],
+    steps:[
+      {text:'鸡蛋打散，隔夜米饭抓散。',timer:0},
+      {text:'热油下蛋液，刚凝固时倒入米饭快速翻炒，让蛋液裹住米粒。',timer:120},
+      {text:'加盐、少许生抽调味，炒至米粒粒粒分明。',timer:180},
+      {text:'撒葱花翻匀出锅。',timer:30}
+    ],
+    related:['鸡蛋','米饭']
+  },
+  {
+    id:'r8', name:'麻婆豆腐', emoji:'🌶️',
+    desc:'麻、辣、烫、香、酥、嫩、鲜、活，川菜之魂。',
+    source:'川菜正宗配方 · 陈麻婆豆腐',
+    difficulty:'中等', time:20, servings:'2人份',
+    tags:['川菜','下饭','辣'],
+    rating:5,
+    ingredients:[
+      {name:'嫩豆腐',amt:'1盒',cat:'蔬菜'},{name:'牛肉末',amt:'100g',cat:'肉类'},
+      {name:'郫县豆瓣',amt:'1勺',cat:'调味'},{name:'花椒粉',amt:'适量',cat:'调味'},
+      {name:'蒜末',amt:'适量',cat:'调味'},{name:'葱花',amt:'适量',cat:'调味'},
+      {name:'水淀粉',amt:'适量',cat:'调味'}
+    ],
+    steps:[
+      {text:'豆腐切2cm方块，淡盐水焯烫去豆腥。',timer:120},
+      {text:'热油下牛肉末炒散变色，加豆瓣炒出红油。',timer:180},
+      {text:'加水烧开，下豆腐轻推，小火煮入味。',timer:300},
+      {text:'分两次勾芡，让汤汁浓稠裹住豆腐。',timer:60},
+      {text:'出锅撒花椒粉、葱花，趁热吃。',timer:0}
+    ],
+    related:['豆腐','牛肉']
+  }
+];
+
+const INGREDIENTS = [
+  {id:'牛腩',name:'牛腩',emoji:'🥩',cat:'肉类',seasons:[10,11,12,1,2],
+   look:'色泽鲜红均匀，脂肪洁白，纹理清晰有大理石花纹',touch:'按压能快速回弹，不黏手，手感紧实有弹性',smell:'正常肉腥味，无酸臭或异味',
+   tips:'炖牛腩选肋条或坑腩，肥瘦相间最香；牛腩需长时间炖煮才酥烂',recipes:['r1']},
+  {id:'五花肉',name:'五花肉',emoji:'🥓',cat:'肉类',seasons:[9,10,11,12,1,2],
+   look:'肥瘦分层明显，至少三层，脂肪雪白瘦肉粉红',touch:'肉质紧实，按压回弹，表皮无黏液',smell:'鲜肉气味，无腐臭',
+   tips:'做红烧肉选下五花（腹部），肥层厚口感润；上五花适合炒菜',recipes:['r5']},
+  {id:'鸡翅',name:'鸡翅中',emoji:'🍗',cat:'肉类',seasons:[],
+   look:'表皮白净有光泽，肉质饱满，无淤血青斑',touch:'按压有弹性，不软塌',smell:'无异味',
+   tips:'选肉厚的翅中；冷冻鸡翅看冰霜少、无反复解冻痕迹',recipes:['r2']},
+  {id:'牛肉',name:'牛肉末',emoji:'🥩',cat:'肉类',seasons:[],
+   look:'颜色鲜红，颗粒均匀',touch:'不黏手',smell:'鲜肉味',
+   tips:'麻婆豆腐用牛柳剁末最嫩，也可用猪里脊替代',recipes:['r8']},
+  {id:'鲈鱼',name:'鲈鱼',emoji:'🐟',cat:'海鲜',seasons:[9,10,11,12,1,2],
+   look:'眼睛清亮凸出，鳃部鲜红，鳞片完整有光泽',touch:'鱼肉紧实有弹性，按压回弹快',smell:'海水清腥味，无臭',
+   tips:'海鲈比淡水鲈更鲜美；清蒸选活鱼，1斤左右最佳',recipes:['r3']},
+  {id:'鲜虾',name:'鲜虾',emoji:'🦐',cat:'海鲜',seasons:[4,5,6,7,8,9],
+   look:'虾壳青亮透明，虾头与身体连接紧密不掉头',touch:'虾身挺括有弹性，壳肉不分离',smell:'海水味，无氨味',
+   tips:'选活蹦乱跳的；虾线要去，开背更入味',recipes:['r4']},
+  {id:'番茄',name:'番茄',emoji:'🍅',cat:'蔬菜',seasons:[6,7,8,9],
+   look:'颜色均匀粉红或大红，蒂部绿色新鲜，无软烂斑点',touch:'软硬适中有弹性，过硬没熟过软易烂',smell:'有淡淡番茄清香',
+   tips:'做菜选熟透沙瓤的；生吃选糖心品种；番茄去皮用开水烫',recipes:['r1']},
+  {id:'洋葱',name:'洋葱',emoji:'🧅',cat:'蔬菜',seasons:[5,6,7,8],
+   look:'表皮干燥完整有光泽，无发芽无霉斑',touch:'紧实沉重，捏着不软',smell:'辛辣刺鼻（新鲜标志）',
+   tips:'紫皮洋葱味浓适合炖菜；黄皮偏甜适合生吃',recipes:['r1']},
+  {id:'西兰花',name:'西兰花',emoji:'🥦',cat:'蔬菜',seasons:[10,11,12,1,2,3],
+   look:'花球紧实浓绿，花蕾细密无发黄',touch:'花球硬挺，茎部脆嫩',smell:'清香味',
+   tips:'花蕾发黄说明不新鲜；淡盐水泡可去虫',recipes:['r6']},
+  {id:'豆腐',name:'嫩豆腐',emoji:'🧈',cat:'蔬菜',seasons:[],
+   look:'洁白细腻有光泽，无气泡孔洞',touch:'嫩滑有弹性，不碎不黏',smell:'豆香，无酸败',
+   tips:'盒装内酯豆腐最嫩；焯水可去豆腥且不易碎',recipes:['r8']},
+  {id:'鸡蛋',name:'鸡蛋',emoji:'🥚',cat:'蛋类',seasons:[],
+   look:'蛋壳清洁有霜状粉末，无裂纹',touch:'拿在手里有压手感（新鲜蛋较重）',smell:'摇一摇无晃动感',
+   tips:'新鲜蛋放水里下沉；炒鸡蛋加一点点水更嫩',recipes:['r7']},
+  {id:'米饭',name:'大米',emoji:'🍚',cat:'主食',seasons:[9,10,11],
+   look:'米粒饱满透明有光泽，无碎米黄粒',touch:'干爽不黏',smell:'清米香，无陈味',
+   tips:'蛋炒饭用隔夜饭，水分少粒粒分明；新米煮饭少放水',recipes:['r7']},
+  {id:'粉丝',name:'粉丝',emoji:'🍜',cat:'主食',seasons:[],
+   look:'细白透明有光泽，无霉变',touch:'干燥脆',smell:'无异味',
+   tips:'绿豆粉丝最劲道；温水泡软不要用开水',recipes:['r4']},
+  {id:'可乐',name:'可乐',emoji:'🥤',cat:'调味',seasons:[],
+   look:'气泡充足',touch:'','smell':'焦糖香',
+   tips:'用普通可乐不要用无糖的，糖度不够上色差',recipes:['r2']},
+  {id:'大蒜',name:'大蒜',emoji:'🧄',cat:'调味',seasons:[5,6,7],
+   look:'蒜瓣饱满紧实，外皮干燥',touch:'硬实不发软',smell:'蒜香浓郁',
+   tips:'干蒜比湿蒜香；蒜蓉粉丝虾用金银蒜（一半炸一半生）最香',recipes:['r6','r4']},
+  {id:'姜',name:'生姜',emoji:'🫚',cat:'调味',seasons:[9,10,11],
+   look:'表皮完整有光泽，芽处鲜嫩',touch:'硬实不软',smell:'辛香',
+   tips:'老姜味浓适合炖；嫩姜可生吃',recipes:['r1','r2','r3','r5']}
+];
+
+/* ================== 状态 ================== */
+let state = {
+  cart: JSON.parse(localStorage.getItem('hhzf_cart')||'[]'),
+  favs: JSON.parse(localStorage.getItem('hhzf_favs')||'[]'),
+  memories: JSON.parse(localStorage.getItem('hhzf_mem')||'{}'),
+  ratings: JSON.parse(localStorage.getItem('hhzf_rat')||'{}'),
+  filterCat:'全部', ingTab:'全部'
+};
+const save=(k,v)=>localStorage.setItem('hhzf_'+k,JSON.stringify(v));
+
+/* ================== 初始化 ================== */
+function init(){
+  renderRecipeFilters();renderRecipes();
+  renderIngTabs();renderIngredients();
+  renderSeasonal();
+  updateCartBadge();
+  // 导航高亮
+  const navs=document.querySelectorAll('[data-nav]');
+  const obs=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){navs.forEach(n=>n.classList.toggle('active',n.dataset.nav===e.target.id))}})
+  },{rootMargin:'-40% 0px -55% 0px'});
+  ['home','cook','pick','season'].forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
+}
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+
+/* ================== 菜谱板块 ================== */
+function renderRecipeFilters(){
+  const cats=['全部',...new Set(RECIPES.flatMap(r=>r.tags))];
+  document.getElementById('recipeFilters').innerHTML=cats.map(c=>
+    `<button class="chip ${state.filterCat===c?'active':''}" onclick="setRecCat('${c}')">${c}</button>`
+  ).join('');
+}
+function setRecCat(c){state.filterCat=c;renderRecipeFilters();renderRecipes()}
+function renderRecipes(){
+  const list=state.filterCat==='全部'?RECIPES:RECIPES.filter(r=>r.tags.includes(state.filterCat));
+  document.getElementById('recipeGrid').innerHTML=list.map(r=>`
+    <div class="recipe-card" onclick="openRecipe('${r.id}')">
+      <div class="recipe-cover">
+        ${r.emoji}
+        <span class="verified-badge">✅ 已验证</span>
+        <span class="fav-btn ${state.favs.includes(r.id)?'active':''}" onclick="event.stopPropagation();toggleFav('${r.id}')">${state.favs.includes(r.id)?'❤️':'🤍'}</span>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-title">${r.name}</div>
+        <div class="recipe-meta"><span>⏱${r.time}分钟</span><span>🔥${r.difficulty}</span><span>🍽${r.servings}</span></div>
+        <div class="recipe-source">来源：${r.source}</div>
+        <div class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleFav(id){
+  if(state.favs.includes(id))state.favs=state.favs.filter(x=>x!==id);
+  else state.favs.push(id);
+  save('favs',state.favs);renderRecipes();
+}
+
+/* ================== 菜谱详情 ================== */
+let curRecipe=null;
+function openRecipe(id){
+  const r=RECIPES.find(x=>x.id===id);curRecipe=r;
+  document.getElementById('modalTitle').textContent=r.emoji+' '+r.name;
+  const mem=state.memories[id]||'';
+  const rat=state.ratings[id]||{};
+  document.getElementById('recipeDetailBody').innerHTML=`
+    <div class="detail-cover">${r.emoji}</div>
+    <div class="detail-tags">${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    <div class="source-box">📜 <b>来源凭证：</b>${r.source}<br>✅ <b>验证状态：</b>已实测通过，绝不踩雷</div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;color:var(--brown-soft);font-size:14px">
+      <span>⏱ 用时：${r.time}分钟</span><span>🔥 难度：${r.difficulty}</span><span>🍽 份量：${r.servings}</span>
+    </div>
+    <div class="detail-section"><h3>🛒 所需食材</h3>
+      <div class="ingredient-list">${r.ingredients.map(i=>`
+        <div class="ing-item"><span class="name">${i.name}</span><span class="amt">${i.amt}</span></div>
+      `).join('')}</div>
+    </div>
+    <div class="detail-section"><h3>👨‍🍳 烹饪步骤</h3>
+      <div class="steps">${r.steps.map((s,i)=>`
+        <div class="step"><div class="step-num">${i+1}</div>
+          <div><div class="step-text">${s.text}</div>
+          ${s.timer?`<div class="step-timer">⏱ ${s.timer<60?s.timer+'秒':Math.floor(s.timer/60)+'分'+(s.timer%60?s.timer%60+'秒':'')}</div>`:''}</div>
+        </div>`).join('')}</div>
+    </div>
+    <div class="detail-section"><h3>💛 美味记忆与双人打分</h3>
+      <div class="dual-rating">
+        <div class="rater"><div class="rater-name">🐰 小兔打分</div>
+          <div class="rating-stars" data-who="rabbit">${[1,2,3,4,5].map(n=>`<span onclick="setRating('${r.id}','rabbit',${n})" style="color:${n<=(rat.rabbit||0)?'var(--warm-orange)':'#ddd'}">★</span>`).join('')}</div>
+        </div>
+        <div class="rater"><div class="rater-name">🧑‍🍳 我打分</div>
+          <div class="rating-stars" data-who="me">${[1,2,3,4,5].map(n=>`<span onclick="setRating('${r.id}','me',${n})" style="color:${n<=(rat.me||0)?'var(--warm-orange)':'#ddd'}">★</span>`).join('')}</div>
+        </div>
+      </div>
+      <div class="memory-box">
+        <div class="rating-label">✍️ 写下这次做饭的小记忆（比如：小兔说好吃、汤差点糊了、一起逛超市的画面…）</div>
+        <textarea id="memText" placeholder="记录属于我们的味道...">${mem}</textarea>
+        <div style="margin-top:10px;text-align:right"><button class="btn btn-warm" onclick="saveMem('${r.id}')">保存记忆 💛</button></div>
+      </div>
+    </div>
+    <div class="detail-actions">
+      <button class="btn btn-primary" onclick="startCooking('${r.id}')">🔥 进入烹饪模式</button>
+      <button class="btn btn-secondary" onclick="addToCart('${r.id}')">🛒 加入采购清单</button>
+      <button class="btn btn-warm" onclick="showIngFromRecipe('${r.id}')">🔗 查看食材挑法</button>
+    </div>
+  `;
+  document.getElementById('recipeModal').classList.add('show');
+}
+function setRating(id,who,n){
+  if(!state.ratings[id])state.ratings[id]={};
+  state.ratings[id][who]=state.ratings[id][who]===n?0:n;
+  save('rat',state.ratings);openRecipe(id);
+}
+function saveMem(id){
+  state.memories[id]=document.getElementById('memText').value;
+  save('mem',state.memories);
+  const b=event.target;b.textContent='已保存 ✓';
+  setTimeout(()=>openRecipe(id),800);
+}
+
+/* ================== 食材反查 ================== */
+function showIngFromRecipe(rid){
+  const r=RECIPES.find(x=>x.id===rid);
+  const ings=r.ingredients.map(i=>i.name);
+  const found=INGREDIENTS.filter(i=>ings.includes(i.id)||ings.includes(i.name));
+  if(!found.length){alert('这道菜的食材暂无挑选秘籍，去好好挑菜板块逛逛吧~');return}
+  openIngredient(found[0].id);
+}
+
+/* ================== 挑菜板块 ================== */
+const CATS=['全部','肉类','海鲜','蔬菜','蛋类','主食','调味'];
+function renderIngTabs(){
+  document.getElementById('ingTabs').innerHTML=CATS.map(c=>
+    `<button class="chip ${state.ingTab===c?'active':''}" onclick="setIngTab('${c}')">${c}</button>`
+  ).join('');
+}
+function setIngTab(c){state.ingTab=c;renderIngTabs();renderIngredients()}
+function renderIngredients(){
+  const list=state.ingTab==='全部'?INGREDIENTS:INGREDIENTS.filter(i=>i.cat===state.ingTab);
+  document.getElementById('ingGrid').innerHTML=list.map(i=>{
+    const now=new Date().getMonth()+1;
+    const inSeason=i.seasons.includes(now);
+    return `<div class="ing-card" onclick="openIngredient('${i.id}')">
+      <div class="ing-emoji">${i.emoji}</div>
+      <div class="ing-name">${i.name}</div>
+      <div class="ing-cat">${i.cat}${inSeason?' · <span style="color:var(--sage-deep)">当季</span>':''}</div>
+    </div>`;
+  }).join('');
+}
+
+function openIngredient(id){
+  const i=INGREDIENTS.find(x=>x.id===id);
+  const related=i.recipes.map(r=>RECIPES.find(x=>x.id===r)).filter(Boolean);
+  document.getElementById('ingModalTitle').textContent=i.emoji+' '+i.name;
+  const seasonNames=i.seasons.length?i.seasons.map(m=>['一','二','三','四','五','六','七','八','九','十','十一','十二'][m-1]+'月').join('、'):'全年';
+  document.getElementById('ingDetailBody').innerHTML=`
+    <div style="text-align:center;font-size:80px;margin-bottom:14px">${i.emoji}</div>
+    <div class="detail-tags"><span class="tag">${i.cat}</span><span class="tag">🌱 时令：${seasonNames}</span></div>
+    <div class="detail-section"><h3>🔍 看 · 摸 · 闻 三步法</h3>
+      <div class="look-touch-smell">
+        <div class="lts-card"><div class="lts-icon">👀</div><div class="lts-title">看</div><div class="lts-text">${i.look||'—'}</div></div>
+        <div class="lts-card"><div class="lts-icon">✋</div><div class="lts-title">摸</div><div class="lts-text">${i.touch||'—'}</div></div>
+        <div class="lts-card"><div class="lts-icon">👃</div><div class="lts-title">闻</div><div class="lts-text">${i.smell||'—'}</div></div>
+      </div>
+    </div>
+    <div class="source-box">💡 <b>小贴士：</b>${i.tips}</div>
+    ${related.length?`
+    <div class="detail-section"><h3>🍳 用它能做这些验真菜谱</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px">
+        ${related.map(r=>`
+          <div class="recipe-card" onclick="closeModal('ingModal');setTimeout(()=>openRecipe('${r.id}'),300)" style="cursor:pointer">
+            <div class="recipe-cover" style="height:80px;font-size:36px">${r.emoji}<span class="verified-badge" style="font-size:10px">✅</span></div>
+            <div class="recipe-body" style="padding:10px"><div class="recipe-title" style="font-size:16px">${r.name}</div></div>
+          </div>`).join('')}
+      </div>
+    </div>`:''}
+  `;
+  document.getElementById('ingModal').classList.add('show');
+}
+
+/* ================== 时令历 ================== */
+function renderSeasonal(){
+  const months=['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+  document.getElementById('seasonalGrid').innerHTML=months.map((m,idx)=>{
+    const items=INGREDIENTS.filter(i=>i.seasons.includes(idx+1));
+    return `<div class="month-card"><div class="m-name">${m}</div>
+      <div class="m-items">${items.length?items.map(i=>`<span onclick="openIngredient('${i.id}')" style="cursor:pointer;color:var(--sage-deep)">${i.emoji}${i.name}</span>`).join(''):'<span style="opacity:.5">—</span>'}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ================== 采购清单 ================== */
+function addToCart(rid){
+  const r=RECIPES.find(x=>x.id===rid);
+  r.ingredients.forEach(i=>{
+    const exist=state.cart.find(c=>c.name===i.name);
+    if(exist){exist.amt=exist.amt+' + '+i.amt;exist.count=(exist.count||1)+1}
+    else state.cart.push({name:i.name,amt:i.amt,checked:false,from:r.name})
+  });
+  save('cart',state.cart);updateCartBadge();
+  const b=event.target;b.textContent='已加入 ✓';
+  setTimeout(()=>{b.textContent='🛒 加入采购清单'},1200);
+}
+function updateCartBadge(){
+  document.getElementById('cartBadge').textContent=state.cart.filter(c=>!c.checked).length;
+}
+function openShop(){renderShop();document.getElementById('shopModal').classList.add('show')}
+function renderShop(){
+  const body=document.getElementById('shopBody');
+  if(!state.cart.length){body.innerHTML=`<div class="shop-empty">🛒 清单空空如也<br>去菜谱里选几道菜加入吧~</div>`;return}
+  body.innerHTML=`
+    <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <button class="btn btn-primary" onclick="openMinimal()">📱 极简采购模式</button>
+      <button class="btn btn-ghost" onclick="clearCart()">🗑 清空清单</button>
+    </div>
+    ${state.cart.map((c,i)=>`
+      <div class="shop-item ${c.checked?'done':''}">
+        <div class="shop-check ${c.checked?'checked':''}" onclick="toggleShop(${i})">${c.checked?'✓':''}</div>
+        <span class="shop-name">${c.name}${c.from?` <span style="color:var(--brown-soft);font-size:13px">(来自${c.from})</span>`:''}</span>
+        <span class="shop-amount">${c.amt}</span>
+        <button class="shop-remove" onclick="removeShop(${i})">✕</button>
+      </div>
+    `).join('')}
+  `;
+}
+function toggleShop(i){state.cart[i].checked=!state.cart[i].checked;save('cart',state.cart);renderShop();updateCartBadge()}
+function removeShop(i){state.cart.splice(i,1);save('cart',state.cart);renderShop();updateCartBadge()}
+function clearCart(){if(confirm('确定清空采购清单？')){state.cart=[];save('cart',state.cart);renderShop();updateCartBadge()}}
+
+function openMinimal(){
+  closeModal('shopModal');
+  renderMinimal();
+  document.getElementById('minimalShop').classList.add('show');
+}
+function renderMinimal(){
+  const body=document.getElementById('minimalBody');
+  const done=state.cart.filter(c=>c.checked).length;
+  document.getElementById('minimalCount').textContent=`${done} / ${state.cart.length} 已采购`;
+  if(!state.cart.length){body.innerHTML=`<div class="shop-empty">清单为空</div>`;return}
+  body.innerHTML=state.cart.map((c,i)=>`
+    <div class="minimal-item ${c.checked?'done':''}">
+      <div class="minimal-check ${c.checked?'checked':''}" onclick="toggleMinShop(${i})">${c.checked?'✓':''}</div>
+      <div>
+        <div class="minimal-name">${c.name}</div>
+        <div style="color:var(--brown-soft);font-size:14px">${c.amt}</div>
+      </div>
+    </div>
+  `).join('');
+}
+function toggleMinShop(i){state.cart[i].checked=!state.cart[i].checked;save('cart',state.cart);renderMinimal();updateCartBadge()}
+function closeMinimal(){document.getElementById('minimalShop').classList.remove('show')}
+
+/* ================== 烹饪模式 ================== */
+let cookStep=0, cookTimer=null, cookLeft=0, cookTotal=0, cookRunning=false;
+function startCooking(id){
+  const r=RECIPES.find(x=>x.id===id);curRecipe=r;cookStep=0;
+  closeModal('recipeModal');
+  document.getElementById('cookingTitle').textContent='正在做：'+r.name;
+  document.getElementById('cookingMode').classList.add('show');
+  showStep();
+}
+function showStep(){
+  const r=curRecipe;const s=r.steps[cookStep];
+  document.getElementById('cookingIndicator').textContent=`第 ${cookStep+1} 步 / 共 ${r.steps.length} 步`;
+  document.getElementById('cookingText').textContent=s.text;
+  document.getElementById('cookingProgress').style.width=((cookStep)/r.steps.length*100)+'%';
+  if(s.timer){cookTotal=s.timer;cookLeft=s.timer;cookRunning=false;updateTimerDisplay()}
+  else{cookTotal=0;cookLeft=0;document.getElementById('cookingTimer').textContent='——';document.getElementById('timerToggle').style.display='none'}
+  if(s.timer)document.getElementById('timerToggle').style.display='';
+}
+function fmt(s){const m=Math.floor(s/60),ss=s%60;return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`}
+function updateTimerDisplay(){
+  if(!cookTotal){return}
+  const el=document.getElementById('cookingTimer');
+  el.textContent=fmt(cookLeft);
+  el.classList.toggle('done',cookLeft<=0);
+}
+function toggleTimer(){
+  if(cookRunning){clearInterval(cookTimer);cookRunning=false;document.getElementById('timerToggle').textContent='▶ 继续计时'}
+  else{
+    if(cookLeft<=0)cookLeft=cookTotal;
+    cookRunning=true;document.getElementById('timerToggle').textContent='⏸ 暂停';
+    cookTimer=setInterval(()=>{
+      cookLeft--;updateTimerDisplay();
+      if(cookLeft<=0){clearInterval(cookTimer);cookRunning=false;document.getElementById('timerToggle').textContent='🔔 时间到！';beep()}
+    },1000);
+  }
+}
+function beep(){
+  try{const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.connect(g);g.connect(ctx.destination);o.frequency.value=880;g.gain.value=.2;
+    o.start();setTimeout(()=>{o.stop()},200);
+    setTimeout(()=>{const o2=ctx.createOscillator(),g2=ctx.createGain();o2.connect(g2);g2.connect(ctx.destination);o2.frequency.value=660;g2.gain.value=.2;o2.start();setTimeout(()=>o2.stop(),300)},250)
+  }catch(e){}
+}
+function nextStep(){
+  clearInterval(cookTimer);cookRunning=false;
+  if(cookStep<curRecipe.steps.length-1){cookStep++;showStep()}
+  else{document.getElementById('cookingText').textContent='🎉 全部完成！开饭啦~ 记得给小兔尝尝哦';document.getElementById('cookingTimer').textContent='💛';document.getElementById('cookingProgress').style.width='100%'}
+}
+function prevStep(){clearInterval(cookTimer);cookRunning=false;if(cookStep>0){cookStep--;showStep()}}
+function exitCooking(){clearInterval(cookTimer);cookRunning=false;document.getElementById('cookingMode').classList.remove('show')}
+
+/* ================== 弹窗 ================== */
+function closeModal(id){document.getElementById(id).classList.remove('show')}
+document.querySelectorAll('.modal-mask').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show')}));
+
+/* 启动 */
+init();
+</script>
+</body>
+</html>
