@@ -1,0 +1,12 @@
+{
+  "name": "haohaozuofan",
+  "version": "1.0.0",
+  "description": "好好做饭 · 小兔和我的厨房",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
